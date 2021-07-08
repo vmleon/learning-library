@@ -375,7 +375,7 @@ At this point, we can use the previous chart to pick the best angle to sail to o
 
 ![pic1](images/wind-speed2.png)
 
-However, this is not so useful by itself. Remember, what we -really- want to know, is not the absolute boat speed, but the boat speed towards our -goal-, which is going directly upwind in this case. What we want to do now, is to obtain the length of the -purple- line!
+However, this is not so useful by itself. Remember, what we -really- want to know, is not the absolute boat speed, but the boat speed towards our -goal-, which is going directly upwind in this case. What we want to do now, is to obtain the length of the -purple- line. The sailing term for this is "Velocity Made Good".
 
 Luckily, we can easily do this by converting the chart into a polar diagram.
 
@@ -385,7 +385,7 @@ Luckily, we can easily do this by converting the chart into a polar diagram.
 
 2. How to read this chart?
 
-   The vertical distance now effectively shows the speed that we're achieving towards the target.
+   Because of the circular projection, the vertical distance now effectively shows the speed that we're achieving towards the target.
 
    ![pic1](images/result-radar1.png)
 
