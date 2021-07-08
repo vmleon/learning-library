@@ -49,8 +49,8 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
 5. Type the password, confirm the password by typing it again and click **Download**.
 
-      - Password: `Oracle_12345`
-      - Confirm Password: `Oracle_12345`
+      - Password: **Oracle_12345**
+      - Confirm Password: **Oracle_12345**
 
    ![AWD Wallet Password](images/adw_wallet_password.png)
 
@@ -87,7 +87,7 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
     >
     > **Username**: SAILOR
     >
-    > **Password**: OracleCloud12345! (we specified this when we created the SAILOR user before)
+    > **Password**: Oracle_12345
     >
     > **Service Name**: Keep the default, the name of your database followed by the \_high suffix.
     >

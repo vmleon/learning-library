@@ -31,7 +31,7 @@ This new user/schema will hold the SailGP data.
 
    ![ADW Menu](images/open-database-actions.png)
 
-   Login with user ADMIN, password Oracle12345! (you specified this upon creation of the Autonomous Data Warehouse earlier).
+   Login with user **ADMIN**, password **Oracle_12345** (you specified this upon creation of the Autonomous Data Warehouse earlier).
 
 4. Open the SQL option.
 
@@ -80,13 +80,13 @@ This new user/schema will hold the SailGP data.
 
 1. **Download** the three files that contain the data that we'll use in our analysis: [File 1](data/sgp_strm_pivot.csv), [File 2](data/sgp_sail_history.csv) and [File 3](data/sgp_windspeed_and_windangles.csv). Save the files on your local machine. Depending on your browser, you may have to use Right Click. Make sure that the files are saved with extension `.csv`.
 
-2. Next, again go to the Database Actions, but this time use the new **SAILOR** user.
+2. Next, again go to the Database Actions.
 
    You should still have a browser tab open with the main page of the Autonomous Datawarehouse service. If not, navigate to this page first. Then, open Database Actions.
 
    ![Open Database Actions](images/open-database-actions.png)
 
-   Login with user **SAILOR**, password Oracle_12345 (you specified this earlier when you created the user).
+   **IMPORTANT: This time, login with user SAILOR, password Oracle_12345 (Don't login with ADMIN**)
 
 3. Click to the Data Load option.
 
@@ -104,7 +104,7 @@ This new user/schema will hold the SailGP data.
 
     ![Start Load Process](images/load-data.png)
 
-7. Load completed
+7. This process takes between 10-30 seconds.
 
     ![Load Completed](images/load-completed.png)
 

@@ -124,7 +124,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
    But luckily for us, Machine Learning is great at extracting these type of patterns! It is able to cut through the noise and find relationships between variables!
 
-## **STEP 3:** Machine Learning - Building the model
+## **STEP 3:** Machine Learning - Setup the Machine Learning user
 
 1. Open the Autonomous Data Warehouse.
 
@@ -136,27 +136,60 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![ADW Menu](images/open-sailgp.png)
 
-3. Open the Service Console
+3. Open the Service Console.
 
    ![pic1](images/open-service-console.png)
 
-4. Choose Development > Oracle Machine Learning Notebooks.
+4. Choose Administration > Manage Oracle ML Users.
+
+   ![pic1](images/manage-ml-users.png)
+
+   Sign in with **ADMIN**, password **Oracle_12345**
+
+5. Check "Show All Users", then click on the **SAILOR** user.
+
+   ![pic1](images/select-ml-user.png)
+
+6. Choose any email address (it's not relevant). By pressing Save we will enable the ML capabilities for this user. **Don't update any of the other fields**.
+
+   ![pic1](images/save-sailor.png)
+
+   Press **Save**. You've now enabled the SAILOR user to use the Machine Learning functionality of Autonomous Data Warehouse.
+
+## **STEP 4:** Machine Learning - Building the model
+
+<!--1. Open the Autonomous Data Warehouse.
+
+   From the Oracle Console, click **Oracle Database** > **Autonomous Data Warehouse**.
+
+   ![ADW Menu](images/adw-menu.png)
+
+2. Click on the SAILGP database that you created earlier.
+
+   ![ADW Menu](images/open-sailgp.png)
+-->
+
+1. In the console of the Autonomous Datawarehouse, open the Service Console.
+
+   ![pic1](images/open-service-console.png)
+
+2. Choose Development > Oracle Machine Learning Notebooks.
 
    ![pic1](images/start-oml.png)
 
-5. Sign in with the user **SAILOR**, password **Oracle_12345**
+3. Sign in with the user **SAILOR**, password **Oracle_12345**
 
    ![pic1](images/sign-in-sailor.png)
 
-6. Start AutoML
+4. Start AutoML
 
    ![pic1](images/start-automl.png)
 
-7. Select **Create Experiment**
+5. Select **Create Experiment**
 
    ![pic1](images/create-experiment.png)
 
-8. Now we have to select how to train our model.
+6. Now we have to select how to train our model.
    The table in which we have our measurements to train on is SAILOR.SGP_SAIL_HISTORY.
    We want to predict **boat speed** from **wind speed** and **wind angle**, therefore for "Predict" select BOAT_SPEED and in the features select WIND_ANGLE and WIND_SPEED. We will use PK as a way to uniquely identify each measurement.
 
@@ -164,17 +197,21 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/configure-experiment.png)
 
-9. Lastly, in the Additional Settings, set Database Service Level to "High". This will help us build the model faster.
+7. Lastly, in the Additional Settings, set Database Service Level to "High". This will help us build the model faster.
 
    ![pic1](images/service-level.png)
 
-10. Now start the training of the model.
+8. Now start the training of the model.
 
     On the top right choose "Start" > "Faster Results".
 
    ![pic1](images/save-start.png)
 
-11. The training will take several minutes. During this time, AutoML tries out several different ML algorithms, with different configurations.
+9. Use the three small dots to open the window with progress of the training process.
+
+    ![pic1](images/learning-summary.png)
+
+10. The training will take several minutes. During this time, AutoML tries out several different ML algorithms, with different configurations.
 
     The value under "Negative Mean Squared Error" is an indicator of the accuracy of the model.
 
@@ -182,11 +219,13 @@ In the past we've gone onto the water with our boat many times in different wind
 
     We will use the **Support Vector Machine (Gaussian) model**.
 
-    **Make a note of the exact model name, including the number. You will need this later.**
+    **IMPORTANT: Make a note of the exact model name, including the number. You will need this later.**
 
-## **STEP 3:** Machine Learning - Predicting boat speed in Oracle Analytics Cloud
+## **STEP 5:** Machine Learning - Predicting boat speed in Oracle Analytics Cloud
 
 Now it's time to make predictions with the model. We will make a prediction for a combination of wind speeds (5, 10, 15, 20 and 25 mph) and range of wind angles (0-180 degrees with 1 degree increments).
+
+The following assumes you already have Oracle Analytics Cloud open in your browser. If not, you can find instructions in Step 2 on how to open it.
 
 1. Create a new dataset.
 
@@ -206,32 +245,79 @@ Now it's time to make predictions with the model. We will make a prediction for 
 
    ![pic1](images/click-table.png)
 
-5.
+5. Save the Data Set, call it "To Predict".
 
    ![pic1](images/save-dataset.png)
 
+6. Go back to the Home Page.
+
    ![pic1](images/to-homepage.png)
+
+7. Now we need to make the Machine Learning model that we built in the database available to Oracle Analytics Cloud.
+
+   Choose Create > Register ML Model.
 
    ![pic1](images/register-ml-model.png)
 
+8. Now select the model starting with SVMG. Check that it has the same name that you created earlier. Then press "Register".
+
    ![pic1](images/register3.png)
+
+9. Now it's time to predict the boat speeds for all the combinations of wind speed and wind angle in the "To Predict" dataset. We can do this with Data Flows. Data Flows let us create a series of steps in which we can manipulate data in sequence, or in this case, apply a ML model to data.
+
+   Create a new Data Flow.
 
    ![pic1](images/create-df.png)
 
+10. Select the "To Predict" Data Set as the input for the Data Flow.
+
    ![pic1](images/select-to-predict.png)
+
+11. Click on the "+" icon next to the "To Predict" Data Set and add an "Apply Model" step.
 
    ![pic1](images/add-apply-model.png)
 
+12. Choose the model that we registered earlier.
+
+   ![pic1](images/select-model.png)
+
+   See how the Wind Speed and Wind Angle are automatically lined up with the input features of the model.
+
+13. Add a step to save the resulting data to a new Data Set.
+
    ![pic1](images/save-data.png)
+
+14. Fill in the following details on the "Save Data" step.
+
+   > Data Set: Predicted Boat speed
+
+   > Table: SGP_PREDICTED
 
    ![pic1](images/save-df0.png)
 
+   Then press Save.
+
+15. Give the Data Flow the name "Prediction Data Flow".
+
    ![pic1](images/save-df2.png)
 
+16. On the top right, click on the play button to start the Data Flow.
 
-2. Go to **Menu** > **XXX** > **XXX**.
+    ![pic1](images/run-df.png)
 
-   ![pic1](images/pic_1.png)
+    This may take a few minutes. You should see a message that the Data Flow completed successfully.
+
+17. Go back to the Home Page.
+
+    ![pic1](images/to-homepage2.png)
+
+18. Open the new Data Set by clicking on Data, then on the ribbon of "Predicted Boat Speed" and select "Open".
+
+    ![pic1](images/open-predicted.png)
+
+
+(must change prediction to metric)
+
 
    > Note: XXX.
 
@@ -288,6 +374,13 @@ Now it's time to make predictions with the model. We will make a prediction for 
    ![pic4](images/pic_4.png)
 
 7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/27PK5yRJp6ikvVdli-21D0vTwNywA0Q1aUPD2RQ7G8rtbPQwO2onh7TaZjfjawPj/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">File To Download</a>.
+
+
+
+
+
+
+
 
 8. On **XXX**, create `xxxx` xxxx.
 
