@@ -381,11 +381,11 @@ Luckily, we can easily do this by converting the chart into a polar diagram.
 
 1. Change the visualization of the chart to "Radar Line".
 
-   ![pic1](images/resulting-line-chart.png)
+   ![pic1](images/radar-line2.png)
 
 2. How to read this chart?
 
-   Because of the circular projection, the vertical distance now effectively shows the speed that we're achieving towards the target.
+   Because of the circular projection, the vertical distance now effectively shows the Velocity Made Good (the speed that we're achieving towards the target).
 
    ![pic1](images/result-radar1.png)
 
