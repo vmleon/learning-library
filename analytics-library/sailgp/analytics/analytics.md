@@ -289,7 +289,10 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
 ## **STEP 4**: Investigate start performance - part 1
 
-The start of the race is very important. Often, who will win the race is decided in these crucial first moments. Teams want to position themselves as well as possible during the count down to the start signal. For example, they try to a) be as close to the starting line when the race starts, and b) have the highest possible speed when the race starts.
+The start of the race is very important. Often, who will win the race is decided in these crucial first moments. Teams want to position themselves as well as possible during the count down to the start signal. For example, they try to
+
+- Be as close to the starting line when the race starts and,
+- Have the highest possible speed when the race starts.
 
 <!--
 To give you an impression, have a look at this video. You can see how teams are trying to get in the best possible position and with the highest speeds.
@@ -301,7 +304,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    Our goal is to visualize the boats on a map so that we can see how close the teams are to the starting line at the star signal. Luckily, our data contains the geographical coordinate (latitude + longitude) of each boat at each moment in the race. However, we first have to instruct Oracle Analytics Cloud to interpret our coordinates as such.
 
-   From the home page of Oracle Analytics Cloud, choose "Data", then click the ribbon and select "Open".
+   From the home page of Oracle Analytics Cloud, choose "Data", then click the ribbon `Race Data` and select "Open".
 
    ![pic2](images/open-dataset.png)
 
@@ -367,7 +370,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 ## **STEP 5**: Add geographical data of the track
 
-1. **Download** a file that contains all the geographical elements (such as starting line, waypoints and finish line) from [File with Bermuda geo elements](data/bermuda.geojson) to your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.geojson`.
+1. **Download** a file that contains all the geographical elements (such as starting line, waypoints and finish line) from [File with Bermuda geo elements](files/bermuda.geojson) to your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.geojson`.
 
 2. From the ribbon on the homepage, go to the Console.
 
@@ -397,7 +400,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/open-dataset.png)
 
-8. Click the BDE_LEG_NUM_UNK column. This contains the current leg that each boat is sailing at a particular moment in time. Set "Treat As" to Attribute.
+8. Click the `BDE_LEG_NUM_UNK` column. This contains the current leg that each boat is sailing at a particular moment in time. Set "Treat As" to Attribute.
 
    ![pic2](images/config-leg.png)
 
@@ -465,7 +468,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    Let's see how well our focus teams, Denmark and France, compare to the winner, Great Britain, as it comes to maneuvers.
 
-1. From the home page of Oracle Analytics Cloud, choose "Data", then click the ribbon and select "Open".
+1. From the home page of Oracle Analytics Cloud, choose "Data", then click the ribbon `Race Data` and select "Open".
 
    ![pic2](images/open-dataset2.png)
 
