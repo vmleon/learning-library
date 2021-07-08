@@ -32,12 +32,12 @@ In this lab, you will:
 - A configured connection between Oracle Analytics Cloud and Autonomous Data Warehouse
 
 ## **STEP 1:** Planning our approach
-For this case, we will imagine that our **goal is to try to sail upwind** (into the direction of the source of the wind) as fast as possible. Different angles result in different boat speed, for example:
+For this case, we will imagine that our **goal is to try to sail upwind** (into the direction of the source of the wind) as fast as possible. Different angles result in different boat speeds, for example:
 - Going directly upwind with angle 0 (straight into the wind) is not possible at all.
 - Taking a wide angle of 60+ degrees (e.g. "Wind angle 2") will result in a high boat speed, but it will not bring us to our target as quickly as possible (going vertically "up").
 - Taking a less wide angle (e.g. "Wind angle 1") will result in a less high boat speed, but may actually bring us to our target faster.
 
-Therefore, there is an optimal wind angle, and it is up to us to find it. However, this is not so easy; every boat has its own characteristics and responds with a different speed to the wind angle and wind speed in a non-linear way. There's a complex relationship between this variables!
+Therefore, there is an optimal wind angle, and it is up to us to find it. However, this is not so easy; every boat has its own characteristics and responds with a different speed to the wind angle and wind speed in a non-linear way. There's a complex relationship between these variables!
 
 ![pic1](images/wind-speed.png)
 
@@ -49,9 +49,9 @@ We will attack the problem in two phases:
 
 ## **STEP 2:** Machine Learning - Data Exploration
 
-Predict the actual boat speed (green) based on wind speed (red) and wind angle (blue).
+Predict boat speed (green) based on wind speed (red) and wind angle (blue).
 
-In the past we've gone onto the water with our boat many times in different wind conditions, and we've measured wind speed, wind angle and the resulting boat speed. This has resulted in a data set with many measurements. Let's have a look at this data.
+In the past we've gone onto the water with our boat many times in different wind conditions, and we've measured wind speed, wind angle and the resulting boat speed. This has resulted in a data set with many measurements. We'll start the process by having a look at this data.
 
 1. Open Oracle Analytics Cloud.
 
