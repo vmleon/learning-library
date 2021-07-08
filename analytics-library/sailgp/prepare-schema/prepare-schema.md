@@ -15,7 +15,9 @@ To complete this lab, you need to have the following:
 - A provisioned Autonomous Data Warehouse
 - You're logged into your Oracle Cloud Account
 
-## **STEP 1**: Create a new database user/schema in Autonomous Data Warehouse to hold the data
+## **STEP 1**: Create a new database user/schema in Autonomous Data Warehouse
+
+This new user/schema will hold the SailGP data.
 
 1. Go to **Menu** > **Oracle Database** > **Autonomous Data Warehouse**.
 
@@ -31,6 +33,22 @@ To complete this lab, you need to have the following:
 
    Login with user ADMIN, password Oracle12345! (you specified this upon creation of the Autonomous Data Warehouse earlier).
 
+4. Open the SQL option.
+
+    ![ADW Menu](images/open-sql.png)
+
+5. **Download** the [create_user.sql](sql/create_user.sql). Save the file on your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.sql`.
+
+ 6. Open the create_user_and_tables.sql file with a text editor and copy-and-paste all of its contents from the file into the worksheet area.
+
+    ![ADW Menu](images/copy-paste.png)
+
+ 6. Click the run-script button (**not** the Run button). Then verify the output in the "Script Output" tab. The last lines in the output should indicate that the script has run successfully.
+
+    ![ADW Menu](images/run-script.png)
+
+
+<!--
 4. We're going to first create a new database user/schema that will hold the SailGP data. Open "Database Users".
 
    ![ADW Menu](images/open-db-users.png)
@@ -41,8 +59,8 @@ To complete this lab, you need to have the following:
 
 6. Fill in the following details:
       - User Name:  `SAILOR`
-      - New Password: `Oracle12345!`
-      - Confirm Password: `Oracle12345!`
+      - New Password: `Oracle_12345`
+      - Confirm Password: `Oracle_12345`
       - Quota on tablespace DATA: `UNLIMITED`
       - Check "Web Access"
       - Check "OML"
@@ -56,6 +74,7 @@ To complete this lab, you need to have the following:
    ![ADW Menu](images/enable-rest.png)
 
    Confirm by clicking "Rest Enable User".
+-->
 
 ## **STEP 2**: Upload SailGP data to Autonomous Data Warehouse
 
@@ -67,7 +86,7 @@ To complete this lab, you need to have the following:
 
    ![Open Database Actions](images/open-database-actions.png)
 
-   Login with user **SAILOR**, password Oracle12345! (you specified this earlier when you created the user).
+   Login with user **SAILOR**, password Oracle_12345 (you specified this earlier when you created the user).
 
 3. Click to the Data Load option.
 
@@ -90,24 +109,6 @@ To complete this lab, you need to have the following:
     ![Load Completed](images/load-completed.png)
 
 Congratulations! You've successfully loaded the data into Autonomous Data Warehouse.
-
-<!--
-4. Open the SQL option.
-
-   ![ADW Menu](images/open-sql.png)
-
-6. Open the create_user_and_tables.sql file with a text editor and copy-and-paste all of its contents from the file into the worksheet area.
-
-   ![ADW Menu](images/copy-paste.png)
-
-6. Click the run-script button (**not** the Run button). Then verify the output in the "Script Output" tab. The last lines in the output should indicate that the tables have been created.
-
-   ![ADW Menu](images/run-script.png)
-
-7.
-
-7. Your Autonomous Data Warehouse is ready to use.
--->
 
 You can now proceed to the next lab.
 

@@ -17,7 +17,7 @@ Estimated Lab Time: 30 minutes
 - Learn how to use Oracle Analytics Cloud to prepare and analyze data
 
 ### Prerequisites
-- An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account (see prerequisites in workshop menu)
+- An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
 - Oracle Analytics Cloud
 - Autonomous Data Warehouse
 
@@ -49,8 +49,8 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
 5. Type the password, confirm the password by typing it again and click **Download**.
 
-      - Password: `Oracle12345!`
-      - Confirm Password: `Oracle12345!`
+      - Password: `Oracle_12345`
+      - Confirm Password: `Oracle_12345`
 
    ![AWD Wallet Password](images/adw_wallet_password.png)
 
