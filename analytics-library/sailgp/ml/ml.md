@@ -283,9 +283,34 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    See how the Wind Speed and Wind Angle are automatically lined up with the input features of the model.
 
-13. Add a step to save the resulting data to a new Data Set.
+13. Although the model has predicted values for wind angles from 0-360, our training data actually only has values from 0-180. Therefore it does not make sense to predict values above 180. We will set those to 0.
 
-   ![pic1](images/save-data.png)
+    Click the "+" signal next to Apply Model.
+
+    ![pic1](images/transform-column.png)
+
+14. Choose the Prediction column. This is the column we will adapt.
+
+    ![pic1](images/pred-col.png)
+
+15. Clear the formula, open the Expressions option at the right, and drag "Case (If)" to the formula field.
+
+    ![pic1](images/drag-to-formula.png)
+
+16. Complete the formula "CASE WHEN wind_angle<=180 THEN prediction ELSE 0 END".
+
+    When typing the field names wind_angle and prediction, make sure that you confirm the field names by clicking on the suggestions by the editor.
+
+    ![pic1](images/formula1.png)
+    ![pic1](images/formula2.png)
+
+    If all is well, WIND_ANGLE and PREDICTION will be shown in blue.
+
+    Now Apply the transformation.
+
+17. Finally, add a step to save the resulting data to a new Data Set.
+
+    ![pic1](images/save-data2.png)
 
 14. Fill in the following details on the "Save Data" step.
 
@@ -293,7 +318,7 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    > Table: SGP_PREDICTED
 
-   ![pic1](images/save-df0.png)
+   ![pic1](images/config-save.png)
 
    Then press Save.
 
@@ -315,153 +340,69 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
     ![pic1](images/open-predicted.png)
 
+19. Change the "Treat As" of the 4 columns to be as follows:
 
-(must change prediction to metric)
+    > WIND_SPEED: Attribute
+    > WIND_ANGLE: Attribute
+    > PK: "Attribute
+    > Prediction: Metric
 
+    Ignore any message regarding the Data Flow.
 
-   > Note: XXX.
+    The result should look like this.
 
-3. Click **XXX**.
+    ![pic1](images/column-types.png)
 
-   ![pic2](images/pic_2.png)
+20. Save the Data Set and click "Create Project" after.
 
-4. Select **XXX** and click **XXX**.
+    ![pic1](images/save-and-create.png)
 
-   ![pic3](images/pic_3.png)
+21. Now it's time to visualize the predictions.
 
-5. Change the **XXX** and leave everything else as **default**.
+    Select WIND_SPEED, WIND_ANGLE and Prediction (control-click for multi-select) and Right Click. Then choose "Pick Visualization" and choose "Line" chart.
 
-      - XXX Name: `xxx`
+    ![pic1](images/create-line-chart.png)
 
-6. Click **Next**.
+22. Make sure that the Line Chart is configured as indicated with the red boxes.
 
-   ![pic4](images/pic_4.png)
+    ![pic1](images/resulting-line-chart.png)
 
-7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/27PK5yRJp6ikvVdli-21D0vTwNywA0Q1aUPD2RQ7G8rtbPQwO2onh7TaZjfjawPj/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">File To Download</a>.
+    Conclusion: We can now see clear patterns in how boat speed changes as a result of wind speed and wind angle. The angles to reach the highest boat speed are different depending on the wind speed.
 
-8. On **XXX**, create `xxxx` xxxx.
+## **STEP 6:** Machine Learning - Extract boat speed towards our upwind target
 
-      ```
-      <copy>bash command</copy>
-      ```
+At this point, we can use the previous chart to pick the best angle to sail to obtain the highest boat speed for a certain wind speed. In other words, what we can now predict is the green line in this diagram, based on wind speed and wind angle.
 
-## **STEP 2:** XXX
+![pic1](images/wind-speed2.png)
 
-1. Xxx xxx **xxx** (with access from the Internet) and a **xxx** xxx.
+However, this is not so useful by itself. Remember, what we -really- want to know, is not the absolute boat speed, but the boat speed towards our -goal-, which is going directly upwind in this case. What we want to do now, is to obtain the length of the -purple- line!
 
-   xxx.
+Luckily, we can easily do this by converting the chart into a polar diagram.
 
-2. Go to **Menu** > **XXX** > **XXX**.
+1. Change the visualization of the chart to "Radar Line".
 
-   ![pic1](images/pic_1.png)
+   ![pic1](images/resulting-line-chart.png)
 
-   > Note: XXX.
+2. How to read this chart?
 
-3. Click **XXX**.
+   The vertical distance now effectively shows the speed that we're achieving towards the target.
 
-   ![pic2](images/pic_2.png)
+   ![pic1](images/result-radar1.png)
 
-4. Select **XXX** and click **XXX**.
+   For example, imagine the current wind speed is 10 knots. This is the green ellipse. Now find the point that's vertically in the highest position. This point indicates the maximum speed that we can obtain towards our target (upwind). The optimum angle to obtain this is 41 degrees and the expected boat speed towards the target will be 10 knots.
 
-   ![pic3](images/pic_3.png)
+   ![pic1](images/result-radar2.png)
 
-5. Change the **XXX** and leave everything else as **default**.
+   Another example, imagine the current wind speed is 25 knots. This is the purple ellipse. In this case, the highest vertical point on the line shows that we can obtain a boat speed of 22 knots towards our target if we choose the perfect wind angle of 44 degrees.
 
-      - XXX Name: `xxx`
+## **STEP 7:** Conclusions
+In this lab we predicted what the boat speed will be based on wind speed and wind angle. We did this by training a ML model on historical measurements of wind conditions and resulting boat speed. Machine Learning was able to find the complicated relationship that exists between these variables. Something that's not easy to do for human beings!
 
-6. Click **Next**.
+By displaying these predictions in a smart way in a radar chart, it allowed us to read the optimal angle to take with a certain wind speed, in order to reach our goal as fast as possible!
 
-   ![pic4](images/pic_4.png)
-
-7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/27PK5yRJp6ikvVdli-21D0vTwNywA0Q1aUPD2RQ7G8rtbPQwO2onh7TaZjfjawPj/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">File To Download</a>.
-
-
-
-
-
-
-
-
-8. On **XXX**, create `xxxx` xxxx.
-
-      ```
-      <copy>bash command</copy>
-      ```
-
-## **STEP 3:** XXX
-
-
-1. Xxx xxx **xxx** (with access from the Internet) and a **xxx** xxx.
-
-   xxx.
-
-2. Go to **Menu** > **XXX** > **XXX**.
-
-   ![pic1](images/pic_1.png)
-
-   > Note: XXX.
-
-3. Click **XXX**.
-
-   ![pic2](images/pic_2.png)
-
-4. Select **XXX** and click **XXX**.
-
-   ![pic3](images/pic_3.png)
-
-5. Change the **XXX** and leave everything else as **default**.
-
-      - XXX Name: `xxx`
-
-6. Click **Next**.
-
-   ![pic4](images/pic_4.png)
-
-7. **Download** the dataset <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/27PK5yRJp6ikvVdli-21D0vTwNywA0Q1aUPD2RQ7G8rtbPQwO2onh7TaZjfjawPj/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-reef_life_survey_fish.csv" target="\_blank">File To Download</a>.
-
-8. On **XXX**, create `xxxx` xxxx.
-
-      ```
-      <copy>bash command</copy>
-      ```
-
-Congratulations! You are ready to go to the next Lab!
+Congratulations on completing the lab! Now you've learned the basics of machine learning, hopefully you are inspired to apply it to many more challenges!
 
 ## **Acknowledgements**
-
 - **Author** - Jeroen Kloosterman, Technology Product Strategy Director
 - **Author** - Victor Martin, Technology Product Strategy Manager
 - **Contributors** - XXX
-
-
-
-
-
-
-
-
-We have dataset with a long list of measurements of the combination of wind speed, wind angle and boat speed.
-
-
-
-
-
-First of all, we want to try to predict the
-
-The way that a boat responds by speeding up / slowing down to wind angle and wind speed is very specific to every boat.
-
-In our case, we have
-
-
-Our goal is to predict what the boat speed will be for any combination of wind speed and wind angle. Because if we are able to do that, we can use it to **choose the optimal wind angle that will result in the highest speed** (towards our target).
-
-
-During the data exploration phase, we will investigate what data we have and the correlation that our potential input variables (wind speed and wind angle) have with our target variable (boat speed).
-
-<!--
-   ![pic1](images/start-manage-oml-users.png)
-
-   ![pic1](images/click-sailor.png)
-
-   ![pic1](images/save-sailor.png)
--->
