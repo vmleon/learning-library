@@ -100,7 +100,7 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
 We're going to take a deep dive on the SailGP regatta that took place in Bermuda in April 2021. In particular we're going to have a look at race 4 (out of 7 in total). We're going to do a post race analysis with the goal of helping the teams perform better in the upcoming race.
 
-Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we have to make this available to Oracle Analytics Cloud.
+Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we have to make this available to Oracle Analytics Cloud.
 
 1. On the top right, choose Create and then Dataset.
 
@@ -110,30 +110,30 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
    ![Select SAILGP connection](images/select-sailgp-connection.png)
 
-3. Open the ADMIN schema and double click on the SGP_STRM_PIVOT table.
+3. Open the ADMIN schema and double click on the `SGP_STRM_PIVOT` table.
 
    ![Add dataset](images/add-dataset.png)
 
    Each record in this data set represents one second of the race for one particular team.
    At each second of the race, we can see the values of many of the sensors of the boat of each team.
 
-   You see how Oracle Analytics is profiling the columns in the data set. It creates histograms and other charts of each of the columns to quickly give you insight into what value there is in them. For example, have a look at column B_NAME. This shows you that there are 8 countries that are competing (column B_NAME). And have a look at LENGTH_RH_BOW_MM, which shows you how far the boat comes out of the water, which has values appear to hover between 0 and 1.5m above the water.
+   You see how Oracle Analytics is profiling the columns in the data set. It creates histograms and other charts of each of the columns to quickly give you insight into what value there is in them. For example, have a look at column `B_NAME`. This shows you that there are 8 countries that are competing (column `B_NAME`). And have a look at `LENGTH_RH_BOW_MM`, which shows you how far the boat comes out of the water, which has values appear to hover between 0 and 1.5m above the water.
 
    These graphs are a great way to quickly get a first idea about your data.
 
 4. Configure the details of the dataset
 
-   Now at the bottom of the screen, click on SGP_STRM_PIVOT to configure the details of the dataset.
+   Now at the bottom of the screen, click on `SGP_STRM_PIVOT` to configure the details of the dataset.
 
    ![Details dataset](images/details-dataset.png)
 
-5. Modify TIME_GRP column
+5. Modify `TIME_GRP` column
 
    This attribute contains the time in the race, in seconds. For example, -30 indicates 30 seconds before the start of the race. Value 0 indicates the start of the race, et cetera.
 
    Right now it is classified as a METRIC (visible because of the # symbol). However, we will not use this attribute to calculate, therefore we will convert this into an ATTRIBUTE.
 
-   Click the header of the TIME_GRP column, then click the value next to "Treat As" and change it to "Attribute".
+   Click the header of the `TIME_GRP` column, then click the value next to "Treat As" and change it to "Attribute".
 
    ![Change TIME_GRP to attribute](images/change-timegrp-to-attribute.png)
 
@@ -145,11 +145,11 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
    ![Change TIME_GRP to attribute](images/change-representation.png)
 
-7. Modify the aggregation type of BOAT_SPEED_KNOTS (boat speed in knots)
+7. Modify the aggregation type of `BOAT_SPEED_KNOTS` (boat speed in knots)
 
-   Later on, we'll want to obtain the Maximum Boat Speed for each team. Because of this, we want to set the default aggregation of the BOAT_SPEED_KNOTS field to "Maximum".
+   Later on, we'll want to obtain the Maximum Boat Speed for each team. Because of this, we want to set the default aggregation of the `BOAT_SPEED_KNOTS` field to "Maximum".
 
-   Find the BOAT_SPEED_KNOTS column and click it, then change the aggregation to "Maximum".
+   Find the `BOAT_SPEED_KNOTS` column and click it, then change the aggregation to "Maximum".
 
    ![Change aggregation to maximum](images/boat-speed-max.png)
 
@@ -186,13 +186,13 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
 2. See who were the winners of the race
 
-   Let's start with our first visualization challenge: Find out who took the least time to go from start to finish by creating a chart on B_NAME (team name) and TIME_SAILED (the number of seconds they were sailing).
+   Let's start with our first visualization challenge: Find out who took the least time to go from start to finish by creating a chart on `B_NAME` (team name) and `TIME_SAILED` (the number of seconds they were sailing).
 
-   Drag B_NAME to the canvas.
+   Drag `B_NAME` to the canvas.
 
    ![pic1](images/drag-bname.png)
 
-   Search for the TIME_SAILED column and drag it to the canvas as well.
+   Search for the `TIME_SAILED` column and drag it to the canvas as well.
 
    ![pic1](images/drag-time-sailed.png)
 
@@ -226,13 +226,13 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
    Which teams are able to obtain the maximum speed with the boat? Let's find out!
 
-   Right click on the BOAT_SPEED_KNOTS field and choose "Create Best Visualization".
+   Right click on the `BOAT_SPEED_KNOTS` field and choose "Create Best Visualization".
 
    ![pic2](images/visualize-knots.png)
 
    This shows the maximum speed across all boats in this race. In fact, this was a new record for all SailGP races so far! 51 knots per hour is over 94 kilometers per hour or 59 miles per hour!
 
-   Now, show what the maximum speeds are for all countries, by dragging B_NAME onto the same chart.
+   Now, show what the maximum speeds are for all countries, by dragging `B_NAME` onto the same chart.
 
    ![pic2](images/drag-bname2.png)
 
@@ -255,7 +255,7 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
 	 ![pic2](images/f50-foiling.png)
 
-   First create a calculation to calculate the percentage of time that teams are foiling. We can use the TIME_SAILED (total time to complete race) and TIME_FOILING for this. Add a calculation (right click on "My Calculations") and create the following formula. Remember that you can drag the fields in from the left to add them to the formula.
+   First create a calculation to calculate the percentage of time that teams are foiling. We can use the `TIME_SAILED` (total time to complete race) and `TIME_FOILING` for this. Add a calculation (right click on "My Calculations") and create the following formula. Remember that you can drag the fields in from the left to add them to the formula.
 
    ![pic2](images/foiling-percentage.png)
 
@@ -263,7 +263,7 @@ Earlier, we uploaded the data of this race to Autonomous Datawarehouse. Now, we 
 
    ![pic2](images/foiling-percentage2.png)
 
-   Now add the B_NAME column in the visualization to show the foiling percentage per team.
+   Now add the `B_NAME` column in the visualization to show the foiling percentage per team.
 
    ![pic2](images/drag-bname3.png)
 
@@ -337,7 +337,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/first-map.png)
 
-   We want to be able to distinguish the path of each team separately. Let's color-code each team. Drag the B_NAME column to the "Color" field.
+   We want to be able to distinguish the path of each team separately. Let's color-code each team. Drag the `B_NAME` column to the "Color" field.
 
    ![pic2](images/drag-bname-color.png)
 
@@ -425,7 +425,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/add-layer.png)
 
-3. Drag the BDE_LEG_NUM_UNK column to the Category (Location) field of the new layer.
+3. Drag the `BDE_LEG_NUM_UNK` column to the Category (Location) field of the new layer.
 
    ![pic2](images/drag-leg.png)
 
@@ -439,11 +439,11 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 6. Our next goal is to highlight the positions of the teams at the very start of the race.
 
-	 Right click on the TIME_GRP column and select "Create Best Visualization".
+	 Right click on the `TIME_GRP` column and select "Create Best Visualization".
 
    ![pic2](images/time-grp-viz.png)
 
-8. In the resulting table, click on the "0" to highlight the positions at TIME_GRP = 0.
+8. In the resulting table, click on the "0" to highlight the positions at `TIME_GRP` = 0.
 
    ![pic2](images/select-time-grp-0.png)
 
@@ -469,7 +469,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/open-dataset2.png)
 
-2. Find the TIME_IN_MANEUVER column and set "Treat As" to "Attribute". We'll use this field to zoom in on maneuvers only later on.
+2. Find the `TIME_IN_MANEUVER` column and set "Treat As" to "Attribute". We'll use this field to zoom in on maneuvers only later on.
 
    ![pic2](images/time-in-maneuver.png)
 
@@ -483,7 +483,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 5. Compare number of maneuvers
 
-   Delete any filter that's active. Next, add two new filters. Create a filter on B_NAME (team) to include France and Great Britain and BDE_LEG_NUM_UNK (Leg) to be 3. Then change the zoom on the map so that you can see the full leg.
+   Delete any filter that's active. Next, add two new filters. Create a filter on `B_NAME` (team) to include France and Great Britain and `BDE_LEG_NUM_UNK` (Leg) to be 3. Then change the zoom on the map so that you can see the full leg.
 
    ![pic2](images/investigate-man.png)
 
@@ -511,7 +511,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 	 ![pic4](images/back-to-fields.png)
 
-   In this chart we want to see how well the boats are able to keep out of the water during a maneuver. The boats try to not hit the water during a maneuver, to prevent losing speed. The column LENGTH_RH_BOW_MM indicates the "flying height", the distance that the boat is out of the water. The TWA_SGP_DEG column indicates the wind direction, so we can see exactly when the boat is at the middle of its maneuver.
+   In this chart we want to see how well the boats are able to keep out of the water during a maneuver. The boats try to not hit the water during a maneuver, to prevent losing speed. The column `LENGTH_RH_BOW_MM` indicates the "flying height", the distance that the boat is out of the water. The TWA_SGP_DEG column indicates the wind direction, so we can see exactly when the boat is at the middle of its maneuver.
 
 	 Configure the chart as follows by dragging the fields from the left to the chart configuration.
 
