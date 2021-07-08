@@ -21,11 +21,15 @@
       "filename": "../../adw-provisioning/adw-provisioning.md"
     },
     {
-      "title": "Lab 3: Analytics",
+      "title": "Lab 3: Load Data",
+      "filename": "../../prepare-schema/prepare-schema.md"
+    },
+    {
+      "title": "Lab 4: Analytics",
       "filename": "../../analytics/analytics.md"
     },
     {
-      "title": "Lab 4: Machine Learning",
+      "title": "Lab 5: Machine Learning",
       "filename": "../../ml/ml.md"
     },
     {

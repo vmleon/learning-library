@@ -1,4 +1,4 @@
-# Prepare the schema
+# Load Data
 
 ![Banner](images/banner.png)
 
@@ -37,13 +37,13 @@ This new user/schema will hold the SailGP data.
 
     ![ADW Menu](images/open-sql.png)
 
-5. **Download** the [create_user.sql](sql/create_user.sql). Save the file on your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.sql`.
+5. **Download** the [create_user.sql](files/create_user.sql). Save the file on your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.sql`.
 
- 6. Open the create_user_and_tables.sql file with a text editor and copy-and-paste all of its contents from the file into the worksheet area.
+    1. Open the `create_user.sql` file with a text editor and copy-and-paste all of its contents from the file into the worksheet area.
 
     ![ADW Menu](images/copy-paste.png)
 
- 6. Click the run-script button (**not** the Run button). Then verify the output in the "Script Output" tab. The last lines in the output should indicate that the script has run successfully.
+    2. Click the run-script button (**not** the Run button). Then verify the output in the "Script Output" tab. The last lines in the output should indicate that the script has run successfully.
 
     ![ADW Menu](images/run-script.png)
 
@@ -78,7 +78,7 @@ This new user/schema will hold the SailGP data.
 
 ## **STEP 2**: Upload SailGP data to Autonomous Data Warehouse
 
-1. **Download** the three files that contain the data that we'll use in our analysis: [File 1](data/sgp_strm_pivot.csv), [File 2](data/sgp_sail_history.csv) and [File 3](data/sgp_windspeed_and_windangles.csv). Save the files on your local machine. Depending on your browser, you may have to use Right Click. Make sure that the files are saved with extension `.csv`.
+1. **Download** the three files that contain the data that we'll use in our analysis: [File 1](files/sgp_strm_pivot.csv), [File 2](files/sgp_sail_history.csv) and [File 3](files/sgp_windspeed_and_windangles.csv). Save the files on your local machine. Depending on your browser, you may have to use Right Click. Make sure that the files are saved with extension `.csv`.
 
 2. Next, again go to the Database Actions.
 
