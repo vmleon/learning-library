@@ -31,7 +31,7 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 	![Oracle Console SignIn](images/adw_menu.png)
 
     You can see all the **ADW** instances that you have **created**.
-    **Select** the instance that we created before.
+    **Select** the instance `SAILGP` that we created before.
 
     ![ADW databases list](images/select-sailgp-database.png)
 
@@ -39,11 +39,11 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
    > NOTE: Store wallet files in a secure location. Share wallet files only with authorized users.
 
-3. On the ADW detail page, click **Download**.
+3. On the ADW detail page,click **DB Connection**.
 
    ![AWD DB Connection](images/adw_db_connection.png)
 
-4. Click **Download Wallet** on Database Connection side-screen.
+4. Click **Download Wallet** on Database Connection side-screen. Leave  the default value `Instance Wallet` as the **Wallet Type**. Finally, click **Download Wallet**.
 
    ![AWD Download Wallet](images/adw_download_wallet.png)
 
@@ -61,21 +61,22 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 7. Use the Wallet in Oracle Analytics Cloud
 
     **Return** to the **Oracle Cloud Infrastructure console** and click on the menu icon on the left.
-    **Navigate** to **Analytics** and then **Analytics Cloud**.
+
+    Navigate to **Analytics & AI** and then **Analytics Cloud**.
 
     ![OAC Web Console](images/analytics-oac.png)
 
-7. **Open** the Cloud Analytics **URL** associated with your instance (the one that we created in Lab 2) by using the dots menu button on the right-hand side of your instance information and selecting **Analytics Home Page**.
+8. **Open** the Cloud Analytics **URL** associated with your instance (the one that we created in Lab 2) by using the dots menu button on the right-hand side of your instance information and selecting **Analytics Home Page**.
 
     ![Cloud Analytics URL](images/select-oac-instance.png)
 
     The **Oracle Analytic**s page will open in a new browser **window/tab**.
 
-8. On the top right-hand side of the screen, click **Create**, and then **Connection**.
+9. On the top right-hand side of the screen, click **Create**, and then **Connection**.
 
     ![Connection Creation](images/oac-create-connection.png)
 
-9. Choose **Oracle Autonomous Data Warehouse**.
+10. Choose **Oracle Autonomous Data Warehouse**.
 
     ![Connection Creation - ADW](images/select-adw.png)
 
@@ -94,7 +95,7 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
     ![Connection Creation](images/oac-adw-connection-details-admin.png)
 
-10. Select **Save** to save your new connection **information**.
+11. Select **Save** to save your new connection **information**.
 
 ## **STEP 2:** Add the dataset to Oracle Analytics Cloud
 
@@ -110,7 +111,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![Select SAILGP connection](images/select-sailgp-connection.png)
 
-3. Open the SAILOR schema and double click on the `SGP_STRM_PIVOT` table.
+3. Open the `SAILOR` schema and double click on the `SGP_STRM_PIVOT` table.
 
    ![Add dataset](images/add-dataset.png)
 
@@ -192,13 +193,13 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic1](images/drag-bname.png)
 
-   Search for the `TIME_SAILED` column and drag it to the canvas as well.
+   Find the `TIME_SAILED` column and drag it to the canvas as well.
 
    ![pic1](images/drag-time-sailed.png)
 
    The result should look like this. You have a simple table with the time that each team took to complete the race.
 
-   Let's make this a bit easier to interpret: Change the representation to horizontal bar chart.
+   Let's make this a bit easier to interpret: Change the representation to Horizontal Stacked bar chart.
 
    ![pic1](images/change-to-horbar.png)
 
@@ -206,13 +207,13 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic1](images/change-sorting.png)
 
-   Configure the sorting to be by TIME_SAILED from low to high.
+   Configure the sorting to be by `TIME_SAILED` from low to high.
 
    ![pic1](images/change-sorting2.png)
 
    We can see that Great Britain was the winner, followed by Australia.
 
-   Actually, Japan and the USA did not finish the race because they collided. Let's remove them from the outcome by adding a filter. Drag B_NAME to the filter area.
+   Actually, Japan and the USA did not finish the race because they collided. Let's remove them from the outcome by adding a filter. Drag `B_NAME` to the filter area.
 
    ![pic1](images/drag-bname-to-filter.png)
 
@@ -236,11 +237,11 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic2](images/drag-bname2.png)
 
-   Change the chart-type to "Horizontal Stacked".
+   Change the chart type to "Horizontal Stacked".
 
    ![pic2](images/change-chart-type.png)
 
-   Sort the chart by by boat speed.
+   Sort the chart by boat speed.
 
    ![pic2](images/sort-icon.png)
    ![pic2](images/sort-by-boat-speed.png)
@@ -256,6 +257,10 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 	 ![pic2](images/f50-foiling.png)
 
    First create a calculation to calculate the percentage of time that teams are foiling. We can use the `TIME_SAILED` (total time to complete race) and `TIME_FOILING` for this. Add a calculation (right click on "My Calculations") and create the following formula. Remember that you can drag the fields in from the left to add them to the formula.
+
+   It should look like this:
+
+   > `(TIME_FOILING / TIME_SAILED) *100`
 
    ![pic2](images/foiling-percentage.png)
 
@@ -308,7 +313,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/open-dataset.png)
 
-   Find the "LATITUDE" column, and change "Treat As" to **Attribute**.
+   Find the "LATITUDE" column (towards the end), and change "Treat As" to **Attribute**.
 
    ![pic2](images/latitude.png)
 
@@ -332,7 +337,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/create-project2.png)
 
-   Now we want to visualize our coordinates (comprised of Latitude Longitude). Select the LATITUDE and LONGITUDE columns (use Control to select multiple columns). Then drag them to the canvas.
+   Now we want to visualize our coordinates (comprised of Latitude Longitude). Select the LATITUDE and LONGITUDE columns (use Control to select multiple columns). Then drag them to the right canvas.
 
    ![pic2](images/drag-latlon.png)
 
@@ -354,7 +359,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/filter-range.png)
 
-   Choose only the 10 seconds before and after the start.
+   Choose only the 10 seconds before and after the start. In the filter parameters, **Start** will be `-10` and **End** will be `10`.
 
    ![pic2](images/start-seconds.png)
 
@@ -400,7 +405,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/open-dataset.png)
 
-8. Click the `BDE_LEG_NUM_UNK` column. This contains the current leg that each boat is sailing at a particular moment in time. Set "Treat As" to Attribute.
+8. Click the `BDE_LEG_NUM_UNK` column (towards the end). This contains the current leg that each boat is sailing at a particular moment in time. Set "Treat As" to Attribute.
 
    ![pic2](images/config-leg.png)
 
@@ -416,7 +421,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/to-homepage3.png)
 
-## **STEP 5**: Investigate start performance - part 2
+## **STEP 6**: Investigate start performance - part 2
 
    Now we're ready to include the geographical elements such as starting line, waypoints and finish line.
 
@@ -459,7 +464,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 <!--10. Bonus: Evaluate the speed of the teams at the very start of the race. Which teams have the highest speed? Which teams could try to improve their speed at the start in the next race?-->
 
-## **STEP 6**: Investigating maneuvers
+## **STEP 7**: Investigating maneuvers
 
    When a boat changing the side that's facing the wind, we call this a Tack or a Gybe. Although these maneuvers are necessary to reach the waypoints, in general teams try to minimize the number of maneuvers. The reason: Maneuvers will slow down the boat for a little while.
 <!--	 
@@ -472,7 +477,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/open-dataset2.png)
 
-2. Find the `TIME_IN_MANEUVER` column and set "Treat As" to "Attribute". We'll use this field to zoom in on maneuvers only later on.
+2. Find the `TIME_IN_MANEUVER` column (towards the end) and set "Treat As" to "Attribute". We will use this field to zoom in on maneuvers only later on.
 
    ![pic2](images/time-in-maneuver.png)
 
@@ -484,9 +489,9 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/open-project2.png)
 
-5. Compare number of maneuvers
+5. Compare the number of maneuvers
 
-   Delete any filter that's active. Next, add two new filters. Create a filter on `B_NAME` (team) to include France and Great Britain and `BDE_LEG_NUM_UNK` (Leg) to be 3. Then change the zoom on the map so that you can see the full leg.
+   Delete any filter that's active. Next, add two new filters. Create a filter on `B_NAME` (team) to include France and Great Britain and `BDE_LEG_NUM_UNK` (Leg) to be 3. Then, if needed, change the zoom on the map, so you can see the full leg.
 
    ![pic2](images/investigate-man.png)
 
@@ -499,7 +504,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    Let's see how France's maneuvers compare to those of the winner of the race, GBR.
 
-   Change the filter so we only look at leg 4, and add a filter to only show the parts where teams are making a maneuver.
+   Change the filter so we only look at leg 4, and add a filter to only show the parts where teams are making a maneuver so `MANEUVER` is `Y` (Yes).
 
    ![pic4](images/filter-manoeuver.png)
 
@@ -528,7 +533,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic4](images/maximize-chart.png)
 
-   The way that the flight height has been configured, at a value of 0,4 the boat hits the water. Let's include a reference line to indicate this. Choose the option "Add reference line" as follows:
+   The way that the flight height has been configured, at a value of `0,4` the boat hits the water. Let's include a reference line to indicate this. Click the ribbon menu, select "Add Statistics" and click "Add reference line" as follows:
 
    ![pic4](images/add-reference-line.png)
 
@@ -542,7 +547,8 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 	 **Conclusion:** Notice how the French team comes in contact with the water more often. So the tacking/gybing technique could be another point of attention to improve their next race.
 
-## **STEP 7**: Conclusions
+## **STEP 8**: Conclusions
+
 Congratulations on completing this lab! You have made the first steps towards a full post-race analysis. This is just the beginning; there are many more sensor values to explore and insights to find with which we can improve the teams' performance. We hope you feel inspired to continue experimenting with this data, or even start with the analysis of your own data!
 
 Now you are ready to go to the next Lab.

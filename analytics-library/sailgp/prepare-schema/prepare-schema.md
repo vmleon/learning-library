@@ -23,17 +23,17 @@ This new user/schema will hold the SailGP data.
 
    ![ADW Menu](images/adw-menu.png)
 
-2. Click on the SAILGP database that you created earlier.
+2. Click on the **SAILGP** database that you created earlier.
 
    ![ADW Menu](images/open-sailgp.png)
 
-3. Open Database Actions
+3. Go to **Tools** tab and click **Open Database Actions**.
 
    ![ADW Menu](images/open-database-actions.png)
 
    Login with user **ADMIN**, password **Oracle_12345** (you specified this upon creation of the Autonomous Data Warehouse earlier).
 
-4. Open the SQL option.
+4. Click the **SQL** tile under **Developer** section.
 
     ![ADW Menu](images/open-sql.png)
 
@@ -80,19 +80,19 @@ This new user/schema will hold the SailGP data.
 
 1. **Download** the three files that contain the data that we'll use in our analysis: [File 1](files/sgp_strm_pivot.csv), [File 2](files/sgp_sail_history.csv) and [File 3](files/sgp_windspeed_and_windangles.csv). Save the files on your local machine. Depending on your browser, you may have to use Right Click. Make sure that the files are saved with extension `.csv`.
 
-2. Next, again go to the Database Actions.
+2. Next, again go to **Tools** tab and click **Open Database Actions**.
 
-   You should still have a browser tab open with the main page of the Autonomous Datawarehouse service. If not, navigate to this page first. Then, open Database Actions.
+   You should still have a browser tab open with the main page of the Autonomous Data Warehouse service. If not, navigate to this page first. Then, open Database Actions.
 
    ![Open Database Actions](images/open-database-actions.png)
 
-   **IMPORTANT: This time, login with user SAILOR, password Oracle_12345 (Don't login with ADMIN**)
+   **_IMPORTANT_: This time, login with user SAILOR, password Oracle_12345 (Don't login with ADMIN**)
 
-3. Click to the Data Load option.
+3. Click to the **Data Load** option, under the **Data Tools** section.
 
    ![Open Data Load](images/open-data-load.png)
 
-4. Choose to Load Data from Local Files.
+4. Choose **Load Data** to answer the first question and **Local Files** to answer the second one. Click **Next**.
 
     ![Start Data Load](images/start-data-load.png)
 
@@ -100,11 +100,11 @@ This new user/schema will hold the SailGP data.
 
     ![Select Files](images/select-files.png)
 
-6. Start the load process
+6. Click the **Play** button to start the process and click **Run** on the **Run Data Load Job** verification window.
 
     ![Start Load Process](images/load-data.png)
 
-7. This process takes between 10-30 seconds.
+7. This process takes between 10-30 seconds. You will see the green ticks when done.
 
     ![Load Completed](images/load-completed.png)
 

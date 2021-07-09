@@ -58,16 +58,16 @@ In this lab, you will:
 
    ![OAC Menu](images/oac_menu.png)
 
-2. Make sure you select the `root` Compartment and click **Create Instance**.
+2. Make sure you select the `root` compartment (unless you have permissions and experience selecting a different one) and click **Create Instance**.
 
    ![OAC Create Button](images/oac_create_button.png)
 
 3. Fill the web form with the following information and click **Create**:
 
    - **Compartment**: `root` compartment, unless you have permissions and experience selecting a different one.
-   - **Instance Name**: `SailGPAnalytics`
+   - **Name**: `SailGPAnalytics`
    - **Description**: `Analytics Instance for SailGP Workshop`
-   - **Feature Set**: `Enterprise Analytics` (important)
+   - **Feature Set**: `Enterprise Analytics`
    - **Capacity**: `OCPU` and `1 - Non Production`
    - **License Type**: `License Included`
 
