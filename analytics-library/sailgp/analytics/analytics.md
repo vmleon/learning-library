@@ -110,7 +110,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![Select SAILGP connection](images/select-sailgp-connection.png)
 
-3. Open the ADMIN schema and double click on the `SGP_STRM_PIVOT` table.
+3. Open the SAILOR schema and double click on the `SGP_STRM_PIVOT` table.
 
    ![Add dataset](images/add-dataset.png)
 
@@ -245,7 +245,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
    ![pic2](images/sort-icon.png)
    ![pic2](images/sort-by-boat-speed.png)
 
-   In this case, the teams that have the higher maximum speed also are the teams that are finishing highest. However we have to be careful drawing any conclusions from this. Remember, in sailing the highest speed doesn't necessarily mean the best course taken, nor that you will be the winner.
+   In this case, the teams that have the higher maximum speed also are the teams that are finishing highest. However we have to be careful drawing any conclusions from this. Remember, in sailing the highest speed doesn't necessarily mean the best track taken through the course, nor that you will be the winner.
 
    ![pic2](images/conclusion.png)
 
