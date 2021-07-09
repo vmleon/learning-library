@@ -1,6 +1,6 @@
-# Analytics
+# SailGP Data Analysis
 
-![Banner](images/requirements.png)
+![Banner](images/sailgp-banner.jpg)
 
 ## Introduction
 
@@ -312,7 +312,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/latitude.png)
 
-   Next, click on the ribbon next to the "LAT" field and choose "Location Details".
+   Next, click on the ribbon next to the "LATITUDE" field and choose "Location Details".
 
    ![pic2](images/loc-details2.png)
 
@@ -320,7 +320,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/latitude3.png)
 
-   Next, do the same thing for the "LON" column. Set the "Treat As" to Attribute.
+   Next, do the same thing for the "LONGITUDE" column. Set the "Treat As" to Attribute.
 
    ![pic2](images/longitude.png)
 
@@ -358,9 +358,9 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/start-seconds.png)
 
-   This still isn’t perfect, because we cannot see the starting line. We have no context of the track (starting line, marks, et cetera).
+   This still isn’t perfect, because we cannot see the starting line. We have no context of the race course (starting line, marks, et cetera).
 
-   Our next task will be to bring in that geographical information of the track (starting line, marks, et cetera). First Save, the project.
+   Our next task will be to bring in the geographical elements for starting line, marks, et cetera. First Save, the project.
 
    ![pic2](images/save-project3.png)
 
@@ -368,7 +368,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/to-homepage4.png)
 
-## **STEP 5**: Add geographical data of the track
+## **STEP 5**: Add geographical data of the race course
 
 1. **Download** a file that contains all the geographical elements (such as starting line, waypoints and finish line) from [File with Bermuda geo elements](files/bermuda.geojson) to your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.geojson`.
 
@@ -394,7 +394,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/add-map-layer.png)
 
-6. Next, link our dataset to the geographical data of the track. We will do this by linking the leg number to the trackelement number that we just uploaded.
+6. Next, link our dataset to the geographical data of the race course. We will do this by linking the leg number to the trackelement number that we just uploaded.
 
 7. From the home page of Oracle Analytics Cloud, choose "Data", then click the ribbon and select "Open".
 
@@ -461,7 +461,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 ## **STEP 6**: Investigating maneuvers
 
-   When a boat changing the side that's facing the wind, we call this a Tack or a Gybe. Although these maneuvers are necessary to reach the their waypoints, in general teams try to minimize the number of maneuvers. The reason: Maneuvers will slow down the boat for a little while.
+   When a boat changing the side that's facing the wind, we call this a Tack or a Gybe. Although these maneuvers are necessary to reach the waypoints, in general teams try to minimize the number of maneuvers. The reason: Maneuvers will slow down the boat for a little while.
 <!--	 
 	 We're oversimplifying here, because often maneuvers are also done for tactical/strategical reasons.
 -->
@@ -499,7 +499,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    Let's see how France's maneuvers compare to those of the winner of the race, GBR.
 
-   Change the filter so we only look at leg 4, and add a filter to only show the parts where teams are making a maneuvers.
+   Change the filter so we only look at leg 4, and add a filter to only show the parts where teams are making a maneuver.
 
    ![pic4](images/filter-manoeuver.png)
 

@@ -7,12 +7,12 @@ then after do REST enable with separate option
 then use SQL to add quota: ALTER USER sailor13 QUOTA UNLIMITED ON Data
 -->
 
-# Machine Learning
+# Machine Learning on SailGP data: Predicting the best sailing direction
 
-![Banner](images/banner.png)
+![Banner](images/mlbanner.jpg)
 
 ## Introduction
-In this lab, you will use machine learning to solve a very common challenge in sailing: finding the best course to sail. With the optimal course, we mean **which angle to the wind the boat to sail** to **obtain the highest boat speed** in our target direction, given a particular wind speed.
+In this lab, you will use machine learning to solve a very common challenge in sailing: finding the best direction to sail. With the optimal direction, we mean **which angle to the wind the boat must sail** to **obtain the highest boat speed** in our target direction, given a particular wind speed.
 
 You will train a machine learning model that will find the relationship between wind speed, wind angle and boat speed.
 
@@ -22,7 +22,7 @@ Estimated Lab Time: 25 minutes
 
 ### Objectives
 In this lab, you will:
-- Learn some basic machine learning principles, which you can apply to a myriad of (business) problems.
+- Learn basic machine learning principles, which you can apply to a myriad of (business) problems.
 - Learn how you can perform machine learning in Autonomous Data Warehouse, and analyze the results in Oracle Analytics Cloud, without having to be a data science expert!
 
 ### Prerequisites
