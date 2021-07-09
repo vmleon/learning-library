@@ -557,4 +557,4 @@ Now you are ready to go to the next Lab.
 
 - **Author** - Jeroen Kloosterman, Technology Product Strategy Director
 - **Author** - Victor Martin, Technology Product Strategy Manager
-- **Contributors** - XXX
+- **Contributor** - Priscila Iruela

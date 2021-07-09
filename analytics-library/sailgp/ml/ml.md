@@ -12,6 +12,7 @@ then use SQL to add quota: ALTER USER sailor13 QUOTA UNLIMITED ON Data
 ![Banner](images/mlbanner.jpg)
 
 ## Introduction
+
 In this lab, you will use machine learning to solve a very common challenge in sailing: finding the best direction to sail. With the optimal direction, we mean **which angle to the wind the boat must sail** to **obtain the highest boat speed** in the target direction, given a particular wind speed.
 
 You will train a machine learning model that will find the relationship between wind speed, wind angle and boat speed.
@@ -21,17 +22,20 @@ The machine learning that takes place in the Autonomous Data Warehouse and Oracl
 Estimated Lab Time: 25 minutes
 
 ### Objectives
+
 In this lab, you will:
 - Learn basic machine learning principles, which you can apply to a myriad of (business) problems.
 - Learn how you can perform machine learning in Autonomous Data Warehouse, and analyze the results in Oracle Analytics Cloud, without having to be a data science expert!
 
 ### Prerequisites
+
 - An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
 - Oracle Analytics Cloud
 - Autonomous Data Warehouse
 - A configured connection between Oracle Analytics Cloud and Autonomous Data Warehouse
 
 ## **STEP 1:** Planning our approach
+
 For this case, we will imagine that our **goal is to try to sail upwind** (into the direction of the source of the wind) as fast as possible. Different angles result in different boat speeds, for example:
 - Going directly upwind with angle 0 (straight into the wind) is not possible at all.
 - Taking a wide angle of 60+ degrees (e.g. "Wind angle 2") will result in a high boat speed, but it will not bring us to our target as quickly as possible (going vertically "up").
@@ -56,63 +60,63 @@ In the past we've gone onto the water with our boat many times in different wind
 1. Open Oracle Analytics Cloud.
 
    From the  **Oracle Cloud Infrastructure console** click on the menu icon on the left.
-   **Navigate** to **Analytics** and then **Analytics Cloud**.
+   **Navigate** to **Analytics & AI** and then **Analytics Cloud**.
 
    ![OAC Web Console](images/analytics-oac.png)
 
-7. **Open** the Cloud Analytics **URL** associated with your instance (the one that we created in Lab 2) by using the dots menu button on the right-hand side of your instance information and selecting **Analytics Home Page**.
+2. **Open** the Cloud Analytics **URL** associated with your instance (the one that we created in Lab 2) by using the dots menu button on the right-hand side of your instance information and selecting **Analytics Home Page**.
 
-    ![Cloud Analytics URL](images/select-oac-instance.png)
+   ![Cloud Analytics URL](images/select-oac-instance.png)
 
-8. Let's have a look at our measurements.
+3. Let's have a look at our measurements.
 
    Create a new dataset.
 
    ![pic1](images/create-dataset.png)
 
-9. Select our database connection.
+4. Select our database connection, `SAILGP`.
 
    ![pic1](images/select-sailgp.png)
 
-10. Double click the `SGP_SAIL_HISTORY` table in the `SAILOR` schema.
+5. Double click the `SGP_SAIL_HISTORY` table in the `SAILOR` schema.
 
-    ![pic1](images/select-sail-history.png)
+   ![pic1](images/select-sail-history.png)
 
-    Here you see the results of the measurements of our past trips with the boat; every measurement is a combinations of wind speed, wind angle and resulting boat speed.
+   Here you see the results of the measurements of our past trips with the boat; every measurement is a combinations of wind speed, wind angle and resulting boat speed.
 
-11. Open the contents of the table by clicking on `SGP_SAIL_HISTORY` at the bottom of the screen.
+6. Open the contents of the table by clicking on `SGP_SAIL_HISTORY` at the bottom of the screen.
 
-    ![pic1](images/click-sail-history.png)
+   ![pic1](images/click-sail-history.png)
 
-12. Click on the PK column (this holds a simple counter for each measurement). On the bottom left of the screen, change "Treat As" to "Attribute".
+7. Click on the PK column (this holds a simple counter for each measurement). On the bottom left of the screen, change "Treat As" to "Attribute".
 
-    ![pic1](images/pk-attribute.png)
+   ![pic1](images/pk-attribute.png)
 
-13. Save the Data Set and name it "Sail History".
+8. Save the Data Set and name it "Sail History".
 
-    ![pic1](images/save-dataset2.png)
+   ![pic1](images/save-dataset2.png)
 
-14. From the Home Page. Choose to create a new Project.
+9. From the Home Page. Choose to create a new Project.
 
-    ![pic1](images/create-project.png)
+   ![pic1](images/create-project.png)
 
-15. Select the `PK`, `WIND_SPEED` and `BOAT_SPEED` columns (use control-click) and drag them to the canvas to create a new visualization.
+10. Select the `PK`, `WIND_SPEED` and `BOAT_SPEED` columns (use control-click) and drag them to the canvas to create a new visualization.
 
-    ![pic1](images/investigate-windspeed-boatspeed.png)
+   ![pic1](images/investigate-windspeed-boatspeed.png)
 
-    Conclusion: There appears to be some correlation between wind -speed and boat speed, as you would expect. But it's not just a simple straight line!
+   Conclusion: There appears to be some correlation between wind -speed and boat speed, as you would expect. But it's not just a simple straight line!
 
-    ![pic1](images/result1.png)
+   ![pic1](images/result1.png)
 
-16. Create a new visualization from `PK`, `WIND_ANGLE` and `BOAT_SPEED` and drag it to just above the original chart (the area will be highlighted in blue).
+11. Create a new visualization from `PK`, `WIND_ANGLE` and `BOAT_SPEED` and drag it to just above the original chart (the area will be highlighted in blue).
 
-    ![pic1](images/investigate-windangle-boatspeed.png)
+   ![pic1](images/investigate-windangle-boatspeed.png)
 
    Conclusion: There also appears to be a relationship between `WIND_ANGLE` and `BOAT_SPEED` as well. There's a clear concentration of points in the top of the chart. However, there are also many points further down.
 
    ![pic1](images/result2.png)
 
-18. Drag the `WIND_SPEED` to the **Color** component. With this we're trying to visualize the relationship between all three variables.
+12. Drag the `WIND_SPEED` to the **Color** component. With this we're trying to visualize the relationship between all three variables.
 
    ![pic1](images/add-windspeed.png)
 
@@ -203,23 +207,23 @@ In the past we've gone onto the water with our boat many times in different wind
 
 8. Now start the training of the model.
 
-    On the top right choose "Start" > "Faster Results".
+   On the top right choose "Start" > "Faster Results".
 
    ![pic1](images/save-start.png)
 
 9. Use the three small dots to open the window with progress of the training process.
 
-    ![pic1](images/learning-summary.png)
+   ![pic1](images/learning-summary.png)
 
 10. The training will take several minutes. During this time, AutoML tries out several different ML algorithms, with different configurations.
 
-    The value under "Negative Mean Squared Error" is an indicator of the accuracy of the model.
+   The value under "Negative Mean Squared Error" is an indicator of the accuracy of the model.
 
-    ![pic1](images/svmg.png)
+   ![pic1](images/svmg.png)
 
-    We will use the **Support Vector Machine (Gaussian) model**.
+   We will use the **Support Vector Machine (Gaussian) model**.
 
-    **IMPORTANT: Make a note of the exact model name, including the number. You will need this later.**
+   **IMPORTANT: Make a note of the exact model name, including the number. You will need this later.**
 
 ## **STEP 5:** Machine Learning - Predicting boat speed in Oracle Analytics Cloud
 
@@ -255,8 +259,7 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
 7. Now we need to make the Machine Learning model that we built in the database available to Oracle Analytics Cloud.
 
-   Choose Create > Register ML Model.
-
+   Click the ribbon, then Register ML Model. select `SAILGP`.
    ![pic1](images/register-ml-model.png)
 
 8. Now select the model starting with `SVMG`. Check that it has the same name that you created earlier. Then press "Register".
@@ -269,15 +272,15 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/create-df.png)
 
-10. Select the "To Predict" Data Set as the input for the Data Flow.
+10. Select the "To Predict" Data Set as the input for the Data Flow and click **Add**.
 
    ![pic1](images/select-to-predict.png)
 
-11. Click on the "+" icon next to the "To Predict" Data Set and add an "Apply Model" step.
+11. Click on the **+** icon next to the **To Predict** Data Set and add an **Apply Model** step.
 
    ![pic1](images/add-apply-model.png)
 
-12. Choose the model that we registered earlier.
+12. Choose the model that we registered earlier, and click **OK**.
 
    ![pic1](images/select-model.png)
 
@@ -285,92 +288,90 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
 13. Although the model has predicted values for wind angles from 0-360, our training data actually only has values from 0-180. Therefore it does not make sense to predict values above 180. We will set those to 0.
 
-    Click the "+" signal next to Apply Model.
+   Click the **+** signal next to **Apply Model**, and select **Transform Column**.
 
-    ![pic1](images/transform-column.png)
+   ![pic1](images/transform-column.png)
 
 14. Choose the Prediction column. This is the column we will adapt.
 
-    ![pic1](images/pred-col.png)
+   ![pic1](images/pred-col.png)
 
 15. Clear the formula, open the Expressions option at the right, and drag "Case (If)" to the formula field.
 
-    ![pic1](images/drag-to-formula.png)
+   ![pic1](images/drag-to-formula.png)
 
 16. Complete the formula `CASE WHEN wind_angle<=180 THEN prediction ELSE 0 END`.
 
-    When typing the field names wind_angle and prediction, make sure that you confirm the field names by clicking on the suggestions by the editor.
+   When typing the field names wind_angle and prediction, make sure that you confirm the field names by clicking on the suggestions by the editor.
 
-    ![pic1](images/formula1.png)
-    ![pic1](images/formula2.png)
+   ![pic1](images/formula1.png)
+   ![pic1](images/formula2.png)
 
-    If all is well, `WIND_ANGLE` and `PREDICTION` will be shown in blue.
+   If all is well, `WIND_ANGLE` and `PREDICTION` will be shown in blue.
 
-    Now Apply the transformation.
+   Now Apply the transformation.
 
-17. Finally, add a step to save the resulting data to a new Data Set.
+17. Finally, add a step to save the resulting data to a new Data Set. Select **Save Data**.
 
-    ![pic1](images/save-data2.png)
+   ![pic1](images/save-data2.png)
 
-14. Fill in the following details on the "Save Data" step.
+18. Fill in the following details on the "Save Data" step.
 
-   > Data Set: Predicted Boat speed
-
-   > Table: SGP_PREDICTED
+   - Data Set: `Predicted Boat speed`
+   - Table: `SGP_PREDICTED`
 
    ![pic1](images/config-save.png)
 
    Then press Save.
 
-15. Give the Data Flow the name "Prediction Data Flow".
+19. Give the Data Flow the name "Prediction Data Flow".
 
    ![pic1](images/save-df2.png)
 
-16. On the top right, click on the play button to start the Data Flow.
+20. On the top right, click on the play button to start the Data Flow.
 
-    ![pic1](images/run-df.png)
+   ![pic1](images/run-df.png)
 
-    This may take a few minutes. You should see a message that the Data Flow completed successfully.
+   This may take a few minutes. You should see a message that the Data Flow completed successfully.
 
-17. Go back to the Home Page.
+21. Go back to the Home Page.
 
-    ![pic1](images/to-homepage2.png)
+   ![pic1](images/to-homepage2.png)
 
-18. Open the new Data Set by clicking on Data, then on the ribbon of "Predicted Boat Speed" and select "Open".
+22. Open the new Data Set by clicking on Data, then on the ribbon of "Predicted Boat Speed" and select "Open".
 
-    ![pic1](images/open-predicted.png)
+   ![pic1](images/open-predicted.png)
 
-19. Change the "Treat As" of the 4 columns to be as follows:
+23. Change the "Treat As" of the 4 columns to be as follows:
 
-    > `WIND_SPEED`: Attribute
-    >
-    > `WIND_ANGLE`: Attribute
-    >
-    > `PK`: Attribute
-    >
-    > `Prediction`: Metric
+   - `WIND_SPEED`: Attribute
+   - `WIND_ANGLE`: Attribute
+   - `PK`: Attribute
+   - `Prediction`: Measure
 
-    Ignore any message regarding the Data Flow.
+   Ignore any message regarding the Data Flow by clicking **OK**.
 
-    The result should look like this.
+   The result should look like this.
 
-    ![pic1](images/column-types.png)
+   ![pic1](images/column-types.png)
 
-20. Save the Data Set and click "Create Project" after.
+24. Save the Data Set and click "Create Project" after.
 
-    ![pic1](images/save-and-create.png)
+   ![pic1](images/save-and-create.png)
 
-21. Now it's time to visualize the predictions.
+25. Now it's time to visualize the predictions.
 
-    Select `WIND_SPEED`, `WIND_ANGLE` and `Prediction` (control-click for multi-select) and Right Click. Then choose "Pick Visualization" and choose "Line" chart.
+   Select `WIND_SPEED`, `WIND_ANGLE` and `Prediction` (control-click for multi-select) and Right Click. Then choose "Pick Visualization" and choose "Line" chart.
 
-    ![pic1](images/create-line-chart.png)
+   ![pic1](images/create-line-chart.png)
 
-22. Make sure that the Line Chart is configured as indicated with the red boxes.
+26. Make sure that the Line Chart is configured as indicated with the red boxes.
 
-    ![pic1](images/resulting-line-chart.png)
+   ![pic1](images/resulting-line-chart.png)
 
-    Conclusion: We can now see clear patterns in how boat speed changes as a result of wind speed and wind angle. The angles to reach the highest boat speed are different depending on the wind speed.
+   > If you see a different chart be sure you have the correct order as showed in the picture.
+
+   Conclusion: We can now see clear patterns in how boat speed changes as a result of wind speed and wind angle. The angles to reach the highest boat speed are different depending on the wind speed.
 
 ## **STEP 6:** Machine Learning - Extract boat speed towards our upwind target
 
@@ -408,4 +409,4 @@ Congratulations on completing the lab! Now you've learned the basics of machine 
 ## **Acknowledgements**
 - **Author** - Jeroen Kloosterman, Technology Product Strategy Director
 - **Author** - Victor Martin, Technology Product Strategy Manager
-- **Contributors** - XXX
+- **Contributor** - Priscila Iruela

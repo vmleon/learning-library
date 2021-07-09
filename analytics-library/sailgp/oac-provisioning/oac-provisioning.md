@@ -85,4 +85,4 @@ In this lab, you will:
 
 - **Author** - Jeroen Kloosterman, Technology Product Strategy Director
 - **Author** - Victor Martin, Technology Product Strategy Manager
-- **Contributors** - XXX
+- **Contributor** - Priscila Iruela
