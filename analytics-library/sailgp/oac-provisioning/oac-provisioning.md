@@ -30,7 +30,7 @@ In this lab, you will:
 1. Oracle Cloud has two types of users:
 
    - **OCI Native users**: represent users like you, or applications that can perform operations on OCI native services.
-   - **OCI Federated Users** with Identity Cloud Service (IDCS). IDCS is a Identity Provider included with Oracle Cloud to manage Identity services beyond basic users, groups and roles capabilities. For example, OAuth2.0, Multi Factor Authentication, etc.
+   - **OCI Federated Users** with Identity Cloud Service (IDCS). IDCS is an Identity Provider included with Oracle Cloud to manage Identity services beyond basic users, groups and roles capabilities. For example, OAuth2.0, Multi Factor Authentication, etc.
 
    > NOTE: OAC requires a Federated user.
 

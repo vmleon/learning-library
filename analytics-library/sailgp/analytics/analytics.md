@@ -117,9 +117,9 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
    Each record in this data set represents one second of the race for one particular team.
    At each second of the race, we can see the values of many of the sensors of the boat of each team.
 
-   You see how Oracle Analytics is profiling the columns in the data set. It creates histograms and other charts of each of the columns to quickly give you insight into what value there is in them. For example, have a look at column `B_NAME`. This shows you that there are 8 countries that are competing (column `B_NAME`). And have a look at `LENGTH_RH_BOW_MM`, which shows you how far the boat comes out of the water, which has values appear to hover between 0 and 1.5m above the water.
+   You see how Oracle Analytics is profiling the columns in the data set. It creates histograms and other charts of each of the columns to quickly give you insight into what value there is in them. For example, have a look at column `B_NAME`. This shows you that there are 8 countries that are competing (column `B_NAME`). And have a look at `LENGTH_RH_BOW_MM`, Which shows you how far the boat lifts out of the water, the values appear to hover between 0 and 1.5m above the water.
 
-   These graphs are a great way to quickly get a first idea about your data.
+   These graphs are a great way to quickly get an understanding of your data.
 
 4. Configure the details of the dataset
 
@@ -220,7 +220,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic1](images/configure-filter.png)
 
-   You see that the boats that finished latest were France and Denmark. In what follows now, we will compare France and Denmark to the Great Britain, to see how they are different. Hopefully with this we will find some indicators on what France and Denmark can improve!
+   You can see that the boats that finished last were France and Denmark, we will now compare France and Denmark to Great Britain to see how they are different. Hopefully we will find some indicators on where France and Denmark can make improvements.
 
 3. Compare maximum boat speeds
 
@@ -308,7 +308,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/open-dataset.png)
 
-   Find the "LATITUDE" column, and chance "Treat As" to **Attribute**.
+   Find the "LATITUDE" column, and change "Treat As" to **Attribute**.
 
    ![pic2](images/latitude.png)
 
@@ -466,7 +466,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 	 We're oversimplifying here, because often maneuvers are also done for tactical/strategical reasons.
 -->
 
-   Let's see how well our focus teams, Denmark and France, compare to the winner, Great Britain, as it comes to maneuvers.
+   Let's see how well our focus teams, Denmark and France, compare to the winner, Great Britain, when it comes to maneuvers.
 
 1. From the home page of Oracle Analytics Cloud, choose "Data", then click the ribbon `Race Data` and select "Open".
 
@@ -491,11 +491,11 @@ To give you an impression, have a look at this video. You can see how teams are 
    ![pic2](images/investigate-man.png)
 
    **Conclusion**: Count the number of places where each team changes direction. Notice how the French team makes one more maneuver compared to Great Britain?
-	 The French team could learn from this that they could improve the planning of how they navigate the leg. We have to be careful with this conclusion though, there may be tactical/strategical advantages in tacking/gybing more than strictly necessary (e.g. compete with other boats).
+	The French team could learn from this that they could improve the planning of how they navigate the leg. We have to be careful with this conclusion though, there may be tactical/strategical advantages in tacking/gybing more than strictly necessary (e.g. compete with other boats).
 
 6. Compare the **quality** of maneuvers
 
-   The quality of the maneuvers is also very important. Ideally, during a maneuvers the team loses as little speed as possible. This requires very good technique and coordination between the team members.
+   The quality of the maneuvers is also very important. Ideally, during a maneuver the team loses as little speed as possible. This requires very good technique and coordination between the team members.
 
    Let's see how France's maneuvers compare to those of the winner of the race, GBR.
 
@@ -503,7 +503,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic4](images/filter-manoeuver.png)
 
-   Notice how you now see only sections which the boats are changing their sailing course. Each of these sections is defined to be exactly 30 seconds, with at the center of it the moment in which the boat passes exactly through the wind.
+   Notice how you now only see the sections where the boats are changing their sailing course. Each of these sections is defined to be exactly 30 seconds, and at the centre of it,  the moment in which the boat passes exactly through the wind.
 
 	 Now, let's look into the quality of the maneuvers.
 

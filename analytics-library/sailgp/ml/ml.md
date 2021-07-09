@@ -12,11 +12,11 @@ then use SQL to add quota: ALTER USER sailor13 QUOTA UNLIMITED ON Data
 ![Banner](images/mlbanner.jpg)
 
 ## Introduction
-In this lab, you will use machine learning to solve a very common challenge in sailing: finding the best direction to sail. With the optimal direction, we mean **which angle to the wind the boat must sail** to **obtain the highest boat speed** in our target direction, given a particular wind speed.
+In this lab, you will use machine learning to solve a very common challenge in sailing: finding the best direction to sail. With the optimal direction, we mean **which angle to the wind the boat must sail** to **obtain the highest boat speed** in the target direction, given a particular wind speed.
 
 You will train a machine learning model that will find the relationship between wind speed, wind angle and boat speed.
 
-The machine learning takes place in the Autonomous Data Warehouse and Oracle Analytics Cloud will pick up the resulting predictions from the database and visualize them.
+The machine learning that takes place in the Autonomous Data Warehouse and Oracle Analytics Cloud will pick up the resulting predictions from the database and visualize them.
 
 Estimated Lab Time: 25 minutes
 
@@ -78,7 +78,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
     ![pic1](images/select-sail-history.png)
 
-    Here you see the results of the measurements of our past trips with the boat; Every measurement is a combinations of wind speed, wind angle and resulting boat speed.
+    Here you see the results of the measurements of our past trips with the boat; every measurement is a combinations of wind speed, wind angle and resulting boat speed.
 
 11. Open the contents of the table by clicking on `SGP_SAIL_HISTORY` at the bottom of the screen.
 
@@ -239,7 +239,7 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/windspeed.png)
 
-    You see that this table holds these combination of wind speeds and wind angles. The table **does not yet have** the boat speed. We will predict the boat speed from these two values.
+   You will see that this table holds a combination of wind speeds and wind angles. The table **does not yet have** the boat speed. We will predict the boat speed from these two values.
 
 4. Click on the table name at the bottom of the screen.
 
