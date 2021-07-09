@@ -74,13 +74,13 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/select-sailgp.png)
 
-10. Double click the **SGP_SAIL_HISTORY** table in the **SAILOR** schema.
+10. Double click the `SGP_SAIL_HISTORY` table in the `SAILOR` schema.
 
     ![pic1](images/select-sail-history.png)
 
     Here you see the results of the measurements of our past trips with the boat; Every measurement is a combinations of wind speed, wind angle and resulting boat speed.
 
-11. Open the contents of the table by clicking on SGP_SAIL_HISTORY at the bottom of the screen.
+11. Open the contents of the table by clicking on `SGP_SAIL_HISTORY` at the bottom of the screen.
 
     ![pic1](images/click-sail-history.png)
 
@@ -96,7 +96,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
     ![pic1](images/create-project.png)
 
-15. Select the PK, WIND_SPEED and BOAT_SPEED columns (use control-click) and drag them to the canvas to create a new visualization.
+15. Select the `PK`, `WIND_SPEED` and `BOAT_SPEED` columns (use control-click) and drag them to the canvas to create a new visualization.
 
     ![pic1](images/investigate-windspeed-boatspeed.png)
 
@@ -104,15 +104,15 @@ In the past we've gone onto the water with our boat many times in different wind
 
     ![pic1](images/result1.png)
 
-17. Create a new visualization from PK, WIND_ANGLE and BOAT_SPEED and drag it to just above the original chart (the area will be highlighted in blue).
+16. Create a new visualization from `PK`, `WIND_ANGLE` and `BOAT_SPEED` and drag it to just above the original chart (the area will be highlighted in blue).
 
     ![pic1](images/investigate-windangle-boatspeed.png)
 
-   Conclusion: There also appears to be a relationship between WIND_ANGLE and BOAT_SPEED as well. There's a clear concentration of points in the top of the chart. However, there are also many points further down.
+   Conclusion: There also appears to be a relationship between `WIND_ANGLE` and `BOAT_SPEED` as well. There's a clear concentration of points in the top of the chart. However, there are also many points further down.
 
    ![pic1](images/result2.png)
 
-18. Drag the WIND_SPEED to the **Color** component. With this we're trying to visualize the relationship between all three variables.
+18. Drag the `WIND_SPEED` to the **Color** component. With this we're trying to visualize the relationship between all three variables.
 
    ![pic1](images/add-windspeed.png)
 
@@ -132,7 +132,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![ADW Menu](images/adw-menu.png)
 
-2. Click on the SAILGP database that you created earlier.
+2. Click on the `SAILGP` database that you created earlier.
 
    ![ADW Menu](images/open-sailgp.png)
 
@@ -144,9 +144,9 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/manage-ml-users.png)
 
-   Sign in with **ADMIN**, password **Oracle_12345**
+   Sign in with `ADMIN`, password `Oracle_12345`.
 
-5. Check "Show All Users", then click on the **SAILOR** user.
+5. Check "Show All Users", then click on the `SAILOR` user.
 
    ![pic1](images/select-ml-user.png)
 
@@ -154,7 +154,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/save-sailor.png)
 
-   Press **Save**. You've now enabled the SAILOR user to use the Machine Learning functionality of Autonomous Data Warehouse.
+   Press **Save**. You've now enabled the `SAILOR` user to use the Machine Learning functionality of Autonomous Data Warehouse.
 
 ## **STEP 4:** Machine Learning - Building the model
 
@@ -177,7 +177,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/start-oml.png)
 
-3. Sign in with the user **SAILOR**, password **Oracle_12345**
+3. Sign in with the user `SAILOR`, password `Oracle_12345`.
 
    ![pic1](images/sign-in-sailor.png)
 
@@ -190,8 +190,8 @@ In the past we've gone onto the water with our boat many times in different wind
    ![pic1](images/create-experiment.png)
 
 6. Now we have to select how to train our model.
-   The table in which we have our measurements to train on is SAILOR.SGP_SAIL_HISTORY.
-   We want to predict **boat speed** from **wind speed** and **wind angle**, therefore for "Predict" select BOAT_SPEED and in the features select WIND_ANGLE and WIND_SPEED. We will use PK as a way to uniquely identify each measurement.
+   The table in which we have our measurements to train on is `SAILOR.SGP_SAIL_HISTORY`.
+   We want to predict **boat speed** from **wind speed** and **wind angle**, therefore for "Predict" select `BOAT_SPEED` and in the features select `WIND_ANGLE` and `WIND_SPEED`. We will use `PK` as a way to uniquely identify each measurement.
 
    Configure the Experiment as follows:
 
@@ -235,7 +235,7 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/select-sailgp.png)
 
-3. Double click on the SGP_WINDSPEED_AND_WINDANGLES table (under the **SAILOR** user).
+3. Double click on the `SGP_WINDSPEED_AND_WINDANGLES` table (under the **SAILOR** user).
 
    ![pic1](images/windspeed.png)
 
@@ -259,7 +259,7 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/register-ml-model.png)
 
-8. Now select the model starting with SVMG. Check that it has the same name that you created earlier. Then press "Register".
+8. Now select the model starting with `SVMG`. Check that it has the same name that you created earlier. Then press "Register".
 
    ![pic1](images/register3.png)
 
@@ -297,14 +297,14 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
     ![pic1](images/drag-to-formula.png)
 
-16. Complete the formula "CASE WHEN wind_angle<=180 THEN prediction ELSE 0 END".
+16. Complete the formula `CASE WHEN wind_angle<=180 THEN prediction ELSE 0 END`.
 
     When typing the field names wind_angle and prediction, make sure that you confirm the field names by clicking on the suggestions by the editor.
 
     ![pic1](images/formula1.png)
     ![pic1](images/formula2.png)
 
-    If all is well, WIND_ANGLE and PREDICTION will be shown in blue.
+    If all is well, `WIND_ANGLE` and `PREDICTION` will be shown in blue.
 
     Now Apply the transformation.
 
@@ -342,10 +342,13 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
 19. Change the "Treat As" of the 4 columns to be as follows:
 
-    > WIND_SPEED: Attribute
-    > WIND_ANGLE: Attribute
-    > PK: "Attribute
-    > Prediction: Metric
+    > `WIND_SPEED`: Attribute
+    >
+    > `WIND_ANGLE`: Attribute
+    >
+    > `PK`: Attribute
+    >
+    > `Prediction`: Metric
 
     Ignore any message regarding the Data Flow.
 
@@ -359,7 +362,7 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
 21. Now it's time to visualize the predictions.
 
-    Select WIND_SPEED, WIND_ANGLE and Prediction (control-click for multi-select) and Right Click. Then choose "Pick Visualization" and choose "Line" chart.
+    Select `WIND_SPEED`, `WIND_ANGLE` and `Prediction` (control-click for multi-select) and Right Click. Then choose "Pick Visualization" and choose "Line" chart.
 
     ![pic1](images/create-line-chart.png)
 
