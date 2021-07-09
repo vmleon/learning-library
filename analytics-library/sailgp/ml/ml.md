@@ -150,7 +150,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/select-ml-user.png)
 
-6. Choose any email address (it's not relevant). By pressing Save we will enable the ML capabilities for this user. **Don't update any of the other fields**.
+6. Choose any email address (it's not relevant). **Don't update any of the other fields**.
 
    ![pic1](images/save-sailor.png)
 
@@ -169,7 +169,7 @@ In the past we've gone onto the water with our boat many times in different wind
    ![ADW Menu](images/open-sailgp.png)
 -->
 
-1. In the console of the Autonomous Datawarehouse, open the Service Console.
+1. In the console of the Autonomous Data Warehouse, open the Service Console.
 
    ![pic1](images/open-service-console.png)
 
