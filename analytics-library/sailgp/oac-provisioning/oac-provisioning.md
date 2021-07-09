@@ -8,8 +8,9 @@ During this lab you will deploy an Oracle Analytics Cloud instance on Oracle Clo
 
 > Provisioning Oracle analytics Cloud can take up to 40 minutes.
 
+<!--
 [](youtube:Sf5MkI9pTn0)
-
+-->
 Estimated Lab Time: 15 minutes
 
 ### Objectives

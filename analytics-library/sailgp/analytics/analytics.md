@@ -17,7 +17,7 @@ Estimated Lab Time: 30 minutes
 - Learn how to use Oracle Analytics Cloud to prepare and analyze data
 
 ### Prerequisites
-- An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
+- An Oracle Free Tier, Always Free, Paid or Live Labs Cloud Account
 - Oracle Analytics Cloud
 - Autonomous Data Warehouse
 
