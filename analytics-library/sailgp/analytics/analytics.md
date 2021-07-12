@@ -6,9 +6,13 @@
 
 In this lab you'll get a taste of what it is to be a Data Athlete for SailGP! One of their jobs is to do a post-race analysis. The goal of such an analysis is to find out why one boat finishes before the other one. You'll do this by looking for clues in the data and calculate various performance metrics. The final goal of this is to help the sailing teams to perform better in the upcoming race!
 
+In this lab we'll start with some basic statistics such as the time that it takes each team to finish the race, the maximum speed that the teams achieve and the amount of time that they are able to foil (let the boat rise out of the water).
+
 The tool that will make this possible is **Oracle Analytics Cloud** (OAC), which will work on data that's stored and processed by **Oracle Autonomous Data Warehouse** (ADW).
 
+<!--
 [](youtube:Sf5MkI9pTn0)
+-->
 
 Estimated Lab Time: 30 minutes
 
@@ -186,7 +190,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 	Now you are in the Visualization area!
 
 	> NOTE: As a general note, keep in mind that you can use the Undo/Redo buttons at the top right of the screen if you make any mistake in this section.
-   > 
+   >
    > ![Undo](images/undo.png)
 
 2. See who were the winners of the race
@@ -296,266 +300,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic2](images/to-homepage.png)
 
-## **STEP 4**: Investigate start performance - part 1
-
-The start of the race is very important. Often, who will win the race is decided in these crucial first moments. Teams want to position themselves as well as possible during the count down to the start signal. For example, they try to
-
-- Be as close to the starting line when the race starts and,
-- Have the highest possible speed when the race starts.
-
-<!--
-To give you an impression, have a look at this video. You can see how teams are trying to get in the best possible position and with the highest speeds.
-
-   [](youtube:Gdc_C6m2ke4)
--->
-
-1. Investigate proximity to the starting line at start signal
-
-   Our goal is to visualize the boats on a map so that we can see how close the teams are to the starting line at the star signal. Luckily, our data contains the geographical coordinate (latitude + longitude) of each boat at each moment in the race. However, we first have to instruct Oracle Analytics Cloud to interpret our coordinates as such.
-
-   From the **Home Page** of Oracle Analytics Cloud, choose **Data**, then click the ribbon `Race Data` and select **Open**.
-
-   ![pic2](images/open-dataset.png)
-
-   Find the `LATITUDE` column (towards the end), and change **Treat As** to **Attribute**.
-
-   ![pic2](images/latitude.png)
-
-   Next, click on the ribbon next to the `LATITUDE` field and choose **Location Details**.
-
-   ![pic2](images/loc-details2.png)
-
-   Make sure that the Location Details configuration is as follows. **It's important to press Ok, even if you don't make changes.**
-
-   ![pic2](images/latitude3.png)
-
-   Next, do the same thing for the `LONGITUDE` column. Set the **Treat As** to **Attribute**.
-
-   ![pic2](images/longitude.png)
-
-   Change the Location Details to the following. **It's important to press Ok.**
-
-   ![pic2](images/loc-details3.png)
-
-   Now we're ready to create a project for this data. Save the changes to the data set if you're being asked to.
-
-   ![pic2](images/create-project2.png)
-
-   Now we want to visualize our coordinates (comprised of Latitude and Longitude). Select the `LATITUDE` and `LONGITUDE` columns (use Control to select multiple columns). Then drag them to the right canvas.
-
-   ![pic2](images/drag-latlon.png)
-
-   You should see the following:
-
-   ![pic2](images/first-map.png)
-
-   We want to be able to distinguish the path of each team separately. Let's color-code each team. Drag the `B_NAME` column to the **Color** field.
-
-   ![pic2](images/drag-bname-color.png)
-
-   This shows each team as a separate color. However, it's still a lot of data to digest. How do we zoom in on only the data that's relevant for that start? Let's filter the data to show only the first seconds of the race.
-
-   Drag `TIME_GRP` to the Filter area.
-
-   ![pic2](images/drag-filter.png)
-
-   Set the filter type to **RANGE**.
-
-   ![pic2](images/filter-range.png)
-
-   Choose only the 10 seconds before and after the start. In the filter parameters, **Start** will be `-10` and **End** will be `10`.
-
-   ![pic2](images/start-seconds.png)
-
-   This still isn’t perfect, because we cannot see the starting line. We have no context of the race course (starting line, marks, et cetera).
-
-   Our next task will be to bring in the geographical elements for starting line, marks, et cetera. First Save, the project as `Performance analysis`.
-
-   ![pic2](images/save-project3.png)
-
-   Then, go back to the **Home Page**.
-
-   ![pic2](images/to-homepage4.png)
-
-## **STEP 5**: Add geographical data of the race course
-
-1. **Download** a file that contains all the geographical elements (such as starting line, waypoints and finish line) from <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/XfJRoExhW_0WX_aspj4H1U2Ce8vDA45SRZFW_27KmXYRFXbyRNhjvvU98cB5FbVG/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_bermuda.geojson" target="\_blank">File with Bermuda geo elements</a> to your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.geojson`.
-
-2. From the ribbon on the **Home Page**, go to the Console.
-
-   ![pic2](images/to-console.png)
-
-3. Select Maps.
-
-   ![pic2](images/maps.png)
-
-4. Choose **Add Custom Layer**:
-
-   ![pic2](images/add-custom-layer.png)
-
-5. Choose the file that you've just downloaded. Note the **Trackelement** field.
-
-   This field in the file identifies each of the geographical elements with a number. This number corresponds to the leg to which the element belongs. For example, `trackelement=0` corresponds to the coordinates of the starting line, `trackelement=1` corresponds to the coordinates of the first waypoint after the start and `trackelement=6` corresponds to the coordinates of the finish line. See the image below for an explanation.
-
-   ![pic2](images/trackelements.png)
-
-   Check the "Trackelement" field.
-
-   ![pic2](images/add-map-layer.png)
-
-6. Next, link our dataset to the geographical data of the race course. We will do this by linking the leg number to the trackelement number that we just uploaded.
-
-7. From the **Home Page** of Oracle Analytics Cloud, choose **Data**, then click the ribbon and select **Open**.
-
-   ![pic2](images/open-dataset.png)
-
-8. Click the `BDE_LEG_NUM_UNK` column (towards the end). This contains the current leg that each boat is sailing at a particular moment in time. Set **Treat As** to Attribute.
-
-   ![pic2](images/config-leg.png)
-
-9. Next, go to the Location Details of this column.
-
-   ![pic2](images/loc-details.png)
-
-10. Select the `sailgp bermuda` map to connect to this column. You will notice that the values in our data set ("Your Data") line up perfectly with the values in the map information that we uploaded earlier ("Match").
-
-   ![pic2](images/map-data.png)
-
-11. Go back to the **Home Page** and save the data set if you're being asked to.
-
-   ![pic2](images/to-homepage3.png)
-
-## **STEP 6**: Investigate start performance - part 2
-
-   Now we're ready to include the geographical elements such as starting line, waypoints and finish line.
-
-1. From the Home Page, select **Project and Reports** or **Projects**, then click the project that we created earlier. We called it `Performance analysis` (containing the analysis of the start).
-
-   ![pic2](images/restart-project.png)
-
-2. Click the ribbon icon next to the map configuration and choose **Add Layer**.
-
-   ![pic2](images/add-layer.png)
-
-3. Drag the `BDE_LEG_NUM_UNK` column to the Category (Location) field of the new layer.
-
-   ![pic2](images/drag-leg.png)
-
-4. Select the `sailgp bermuda` layer.
-
-   ![pic2](images/select-bermuda-map-layer.png)
-
-5. You should now see the starting line as follows:
-
-   ![pic2](images/starting-line.png)
-
-6. Our next goal is to highlight the positions of the teams at the very start of the race.
-
-	 Right click on the `TIME_GRP` column and select "Create Best Visualization".
-
-   ![pic2](images/time-grp-viz.png)
-
-8. In the resulting table, click on the "0" to highlight the positions at `TIME_GRP` = 0.
-
-   ![pic2](images/select-time-grp-0.png)
-
-   **Conclusion**: Already at the start, we see that the winner Great Britain is outperforming the other boats. Denmark and France could improve their timing on the start.
-	 It indeed appears that the start is very important for the final result of the race. We also notice that Spain has crossed the starting line early, they actually received a penalty for this.
-
-9. Save the project and go back to the Home Page.
-
-   ![pic2](images/save-project4.png)
-
-<!--10. Bonus: Evaluate the speed of the teams at the very start of the race. Which teams have the highest speed? Which teams could try to improve their speed at the start in the next race?-->
-
-## **STEP 7**: Investigating maneuvers
-
-   When a boat changing the side that's facing the wind, we call this a Tack or a Gybe. Although these maneuvers are necessary to reach the waypoints, in general teams try to minimize the number of maneuvers. The reason: Maneuvers will slow down the boat for a little while.
-<!--	 
-	 We're oversimplifying here, because often maneuvers are also done for tactical/strategical reasons.
--->
-
-   Let's see how well our focus teams, Denmark and France, compare to the winner, Great Britain, when it comes to maneuvers.
-
-1. From the **Home Page** of Oracle Analytics Cloud, choose **Data**, then click the ribbon `Race Data` and select **Open**.
-
-   ![pic2](images/open-dataset2.png)
-
-2. Find the `TIME_IN_MANEUVER` column (towards the end) and set **Treat As** to **Attribute**. We will use this field to zoom in on maneuvers only later on.
-
-   ![pic2](images/time-in-maneuver.png)
-
-3. Go back to the **Home Page**. Save the Data Set if you're being asked to.
-
-   ![pic2](images/to-homepage5.png)
-
-4. Open the Project that we created earlier by clicking on **Projects and Reports** or **Projects** and then click on `Performance analysis`.
-
-   ![pic2](images/open-project2.png)
-
-5. Compare the number of maneuvers
-
-   Delete any filter that's active. Next, add two new filters. Create a filter on `B_NAME` (team) to include France and Great Britain and `BDE_LEG_NUM_UNK` (Leg) to be 3. Then, if needed, change the zoom on the map, so you can see the full leg.
-
-   ![pic2](images/investigate-man.png)
-
-   **Conclusion**: Count the number of places where each team changes direction. Notice how the French team makes one more maneuver compared to Great Britain?
-	The French team could learn from this that they could improve the planning of how they navigate the leg. We have to be careful with this conclusion though, there may be tactical/strategical advantages in tacking/gybing more than strictly necessary (e.g. compete with other boats).
-
-6. Compare the **quality** of maneuvers
-
-   The quality of the maneuvers is also very important. Ideally, during a maneuver the team loses as little speed as possible. This requires very good technique and coordination between the team members.
-
-   Let's see how France's maneuvers compare to those of the winner of the race, GBR.
-
-   Change the filter so we only look at leg 4, and add a filter to only show the parts where teams are making a maneuver so `MANEUVER` is `Y` (Yes).
-
-   ![pic4](images/filter-manoeuver.png)
-
-   Notice how you now only see the sections where the boats are changing their sailing course. Each of these sections is defined to be exactly 30 seconds, and at the centre of it,  the moment in which the boat passes exactly through the wind.
-
-	 Now, let's look into the quality of the maneuvers.
-
-	 Create a new Line Chart by clicking on the Graph icon (second icon from the top left), then drag the Line icon to just left of the existing map visualization.
-   ![pic4](images/create-line-chart.png)
-
-	 Go back to the fields by clicking on the database icon.
-
-	 ![pic4](images/back-to-fields.png)
-
-   In this chart we want to see how well the boats are able to keep out of the water during a maneuver. The boats try to not hit the water during a maneuver, to prevent losing speed. The column `LENGTH_RH_BOW_MM` indicates the "flying height", the distance that the boat is out of the water. The `TWA_SGP_DEG` column indicates the wind direction, so we can see exactly when the boat is at the middle of its maneuver.
-
-	 Configure the chart as follows by dragging the fields from the left to the chart configuration.
-
-   ![pic4](images/configure-line-chart.png)
-
-   Currently we can hardly see the flying height because its values (between 0 and 1,4m) are much smaller than the wind angle (between 0 and 360). Let's add a secondary Y axis to solve that. You can find these settings on the bottom left of the screen.
-
-   ![pic4](images/second-y-axis.png)
-
-   Maximize the chart to see it better:
-
-   ![pic4](images/maximize-chart.png)
-
-   The way that the flight height has been configured, at a value of `0,4` the boat hits the water. Let's include a reference line to indicate this. Click the ribbon menu, select **Add Statistics** and click **Add reference line** as follows:
-
-   ![pic4](images/add-reference-line.png)
-
-   Configure the reference line as follows (bottom left of the screen):
-
-   ![pic4](images/configure-reference-line.png)
-
-   Now, scroll through the resulting chart and compare how well each team manages to stay out of the water during maneuvers.
-
-   ![pic4](images/compare-maneuver-quality.png)
-
-	 **Conclusion:** Notice how the French team comes in contact with the water more often. So the tacking/gybing technique could be another point of attention to improve their next race.
-
-## **STEP 8**: Conclusions
-
-Congratulations on completing this lab! You have made the first steps towards a full post-race analysis. This is just the beginning; there are many more sensor values to explore and insights to find with which we can improve the teams' performance. We hope you feel inspired to continue experimenting with this data, or even start with the analysis of your own data!
-
-Now you are ready to go to the next Lab.
+Congratulations on completing this lab! Now you're ready to move on to the next part of the post-race analysis: analyzing the start of the race.
 
 ## **Acknowledgements**
 

@@ -25,11 +25,19 @@
       "filename": "../../prepare-schema/prepare-schema.md"
     },
     {
-      "title": "Lab 4: Analytics",
+      "title": "Lab 4: Analytics: Basic statistics",
       "filename": "../../analytics/analytics.md"
     },
     {
-      "title": "Lab 5: Machine Learning",
+      "title": "Lab 5: Analytics: The start of the race",
+      "filename": "../../analytics2/analytics2.md"
+    },
+    {
+      "title": "Lab 6: Analytics: Maneuvers",
+      "filename": "../../analytics3/analytics3.md"
+    },
+    {
+      "title": "Lab 7: Machine Learning",
       "filename": "../../ml/ml.md"
     },
     {
