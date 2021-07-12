@@ -37,13 +37,13 @@ This new user/schema will hold the SailGP data.
 
     ![ADW Menu](images/open-sql.png)
 
-5. **Download** the [create_user.sql](files/create_user.sql). Save the file on your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.sql`.
+5. **Download** the <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/JbEdrEEaFEEwmhXdC-nsEdRIJpqz1cQ30LYa7g2E-aYFopABGTNM9Hkp0u5mVRfQ/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_create_user.sql" target="\_blank">sailgp_create_user.sql</a>. Save the file on your local machine. Make sure that the file is saved with extension `.sql`.
 
     1. Open the `create_user.sql` file with a text editor and copy-and-paste all of its contents from the file into the worksheet area.
 
     ![ADW Menu](images/copy-paste.png)
 
-    2. Click the run-script button (**not** the Run button). Then verify the output in the "Script Output" tab. The last lines in the output should indicate that the script has run successfully.
+    1. Click the run-script button (**not** the Run button). Then verify the output in the "Script Output" tab. The last lines in the output should indicate that the script has run successfully.
 
     ![ADW Menu](images/run-script.png)
 
@@ -78,7 +78,13 @@ This new user/schema will hold the SailGP data.
 
 ## **STEP 2**: Upload SailGP data to Autonomous Data Warehouse
 
-1. **Download** the three files that contain the data that we'll use in our analysis: [File 1](files/sgp_strm_pivot.csv), [File 2](files/sgp_sail_history.csv) and [File 3](files/sgp_windspeed_and_windangles.csv). Save the files on your local machine. Depending on your browser, you may have to use Right Click. Make sure that the files are saved with extension `.csv`.
+1. **Download** the three files that contain the data that we'll use in our analysis:
+   
+   - <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/azjOfz91f8jdUPfvkxVzVUFtb2n-Jj_lXYaWQhvgCLsnOMMPvpLruqaAf5sJduNc/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_sgp_strm_pivot.csv" target="\_blank">File 1</a>
+   - <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/5yCpZHlzTE70fotF5LS7sYpIQfOi-XdSQ8DhQRSVsClX7cxIq7YvpmSS8wxX5gaM/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_sgp_sail_history.csv" target="\_blank">File 2</a>
+   - <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/s-A4eEJl4OxSdt02-TcTyz-bQvC_IGczI_PLRflfXx_gzosdKk5t97qMp2UtZ_OU/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_sgp_windspeed_and_windangles.csv" target="\_blank">File 3</a>
+   
+   Save the files on your local machine. Make sure that the files are saved with extension `.csv`.
 
 2. Next, again go to **Tools** tab and click **Open Database Actions**.
 
