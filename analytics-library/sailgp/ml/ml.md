@@ -9,7 +9,7 @@ then use SQL to add quota: ALTER USER sailor13 QUOTA UNLIMITED ON Data
 
 # Machine Learning on SailGP data: Predicting the best sailing direction
 
-![Banner](images/mlbanner.jpg)
+![Banner](images/banner.jpg)
 
 ## Introduction
 

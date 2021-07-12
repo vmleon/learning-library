@@ -1,6 +1,6 @@
 # SailGP Data Analysis
 
-![Banner](images/sailgp-banner.jpg)
+![Banner](images/banner.jpg)
 
 ## Introduction
 

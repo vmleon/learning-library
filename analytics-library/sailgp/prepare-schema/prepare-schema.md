@@ -1,6 +1,6 @@
 # Load Data
 
-![Banner](images/banner.png)
+![Banner](images/banner.jpg)
 
 ## Introduction
 In this lab you will load the SailGP data into the Autonomous Data Warehouse. You will first create a new user/schema that will hold this data. After this lab we will be ready to start analyzing the data.

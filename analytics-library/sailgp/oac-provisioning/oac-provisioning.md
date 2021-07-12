@@ -1,6 +1,6 @@
 # Provision Analytics Cloud
 
-![Banner](images/banner.png)
+![Banner](images/banner.jpg)
 
 ## Introduction
 

@@ -1,6 +1,6 @@
 # Provision  Autonomous Data Warehouse
 
-![Banner](images/banner.png)
+![Banner](images/banner.jpg)
 
 ## Introduction
 

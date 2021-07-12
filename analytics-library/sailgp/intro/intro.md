@@ -1,6 +1,6 @@
 # Introduction
 
-![Oracle Workshop](images/banner.png)
+![Oracle Workshop](images/banner.jpg)
 
 SailGP is like Formula 1 on the water: the boats race over the water at speeds of up to 50 knots (60 m/h, 90 km/h).
 
