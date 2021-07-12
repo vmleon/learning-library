@@ -78,7 +78,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/select-sailgp.png)
 
-5. Double click the `SGP_SAIL_HISTORY` table in the `SAILOR` schema.
+5. **Double click** the `SGP_SAIL_HISTORY` table in the `SAILOR` schema.
 
    ![pic1](images/select-sail-history.png)
 
@@ -88,15 +88,15 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/click-sail-history.png)
 
-7. Click on the PK column (this holds a simple counter for each measurement). On the bottom left of the screen, change "Treat As" to "Attribute".
+7. Click on the PK column (this holds a simple counter for each measurement). On the bottom left of the screen, change **Treat As** to **Attribute**.
 
    ![pic1](images/pk-attribute.png)
 
-8. Save the Data Set and name it "Sail History".
+8. Save the Data Set and name it `Sail History`.
 
    ![pic1](images/save-dataset2.png)
 
-9. From the Home Page. Choose to create a new Project.
+9. From the **Home Page**. Click **Create Project**.
 
    ![pic1](images/create-project.png)
 
@@ -140,17 +140,17 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![ADW Menu](images/open-sailgp.png)
 
-3. Open the Service Console.
+3. Open the **Service Console**.
 
    ![pic1](images/open-service-console.png)
 
-4. Choose Administration > Manage Oracle ML Users.
+4. Choose **Administration** > **Manage Oracle ML Users**.
 
    ![pic1](images/manage-ml-users.png)
 
-   Sign in with `ADMIN`, password `Oracle_12345`.
+   Sign in with `ADMIN`, password `Oracle_12345`, if login is requested.
 
-5. Check "Show All Users", then click on the `SAILOR` user.
+5. Check **Show All Users**, then click on the `SAILOR` user.
 
    ![pic1](images/select-ml-user.png)
 
@@ -173,11 +173,11 @@ In the past we've gone onto the water with our boat many times in different wind
    ![ADW Menu](images/open-sailgp.png)
 -->
 
-1. In the console of the Autonomous Data Warehouse, open the Service Console.
+1. In the console of the Autonomous Data Warehouse, open the **Service Console**.
 
    ![pic1](images/open-service-console.png)
 
-2. Choose Development > Oracle Machine Learning Notebooks.
+2. Choose **Development** > **Oracle Machine Learning Notebooks**.
 
    ![pic1](images/start-oml.png)
 
@@ -185,29 +185,37 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/sign-in-sailor.png)
 
-4. Start AutoML
+4. Start AutoML by clicking on the ribbon and `AutoML`.
 
    ![pic1](images/start-automl.png)
 
-5. Select **Create Experiment**
+5. Select **Create**
 
    ![pic1](images/create-experiment.png)
 
 6. Now we have to select how to train our model.
-   The table in which we have our measurements to train on is `SAILOR.SGP_SAIL_HISTORY`.
-   We want to predict **boat speed** from **wind speed** and **wind angle**, therefore for "Predict" select `BOAT_SPEED` and in the features select `WIND_ANGLE` and `WIND_SPEED`. We will use `PK` as a way to uniquely identify each measurement.
+
+   - Name: `Predict F50 Speed`
+   - Data Source: `SAILOR.SGP_SAIL_HISTORY`, choose `SAILOR` and `SGP_SAIL_HISTORY` on the popup window.
+   
+   We want to predict **boat speed** from **wind speed** and **wind angle**, therefore:
+
+   - Predict: `BOAT_SPEED`
+   - Case ID: `PK`
+
+   In the features make sure `WIND_ANGLE` and `WIND_SPEED` are selected.
 
    Configure the Experiment as follows:
 
    ![pic1](images/configure-experiment.png)
 
-7. Lastly, in the Additional Settings, set Database Service Level to "High". This will help us build the model faster.
+7. Lastly, in the **Additional Settings**, set Database Service Level to `High`. This will help us build the model faster.
 
    ![pic1](images/service-level.png)
 
 8. Now start the training of the model.
 
-   On the top right choose "Start" > "Faster Results".
+   On the top right choose **Start** > **Faster Results**.
 
    ![pic1](images/save-start.png)
 
@@ -217,7 +225,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
 10. The training will take several minutes. During this time, AutoML tries out several different ML algorithms, with different configurations.
 
-   The value under "Negative Mean Squared Error" is an indicator of the accuracy of the model.
+   The value under **Negative Mean Squared Error** is an indicator of the accuracy of the model.
 
    ![pic1](images/svmg.png)
 
@@ -239,7 +247,7 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/select-sailgp.png)
 
-3. Double click on the `SGP_WINDSPEED_AND_WINDANGLES` table (under the **SAILOR** user).
+3. **Double click** on the `SGP_WINDSPEED_AND_WINDANGLES` table (under the **SAILOR** user).
 
    ![pic1](images/windspeed.png)
 
@@ -249,20 +257,20 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/click-table.png)
 
-5. Save the Data Set, call it "To Predict".
+5. Save the Data Set, call it `To Predict`.
 
    ![pic1](images/save-dataset.png)
 
-6. Go back to the Home Page.
+6. Go back to the **Home Page**.
 
    ![pic1](images/to-homepage.png)
 
 7. Now we need to make the Machine Learning model that we built in the database available to Oracle Analytics Cloud.
 
-   Click the ribbon, then Register ML Model. select `SAILGP`.
+   Click the **ribbon**, then **Register ML Model**. Then select `SAILGP` connection.
    ![pic1](images/register-ml-model.png)
 
-8. Now select the model starting with `SVMG`. Check that it has the same name that you created earlier. Then press "Register".
+8. Now select the model starting with `SVMG`. Check that it has the same name that you created earlier. Then press **Register**.
 
    ![pic1](images/register3.png)
 
@@ -315,16 +323,16 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/save-data2.png)
 
-18. Fill in the following details on the "Save Data" step.
+18. Fill in the following details on the **Save Data** step.
 
    - Data Set: `Predicted Boat speed`
    - Table: `SGP_PREDICTED`
 
    ![pic1](images/config-save.png)
 
-   Then press Save.
+   Then press **Save**.
 
-19. Give the Data Flow the name "Prediction Data Flow".
+19. Give the Data Flow the name `Prediction Data Flow`.
 
    ![pic1](images/save-df2.png)
 
@@ -334,20 +342,20 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    This may take a few minutes. You should see a message that the Data Flow completed successfully.
 
-21. Go back to the Home Page.
+21. Go back to the **Home Page**.
 
    ![pic1](images/to-homepage2.png)
 
-22. Open the new Data Set by clicking on Data, then on the ribbon of "Predicted Boat Speed" and select "Open".
+22. Open the new Data Set by clicking on **Data**, then on the ribbon of **Predicted Boat Speed** and select **Open**.
 
    ![pic1](images/open-predicted.png)
 
-23. Change the "Treat As" of the 4 columns to be as follows:
+23. Change the **Treat As** of the 4 columns to be as follows:
 
-   - `WIND_SPEED`: Attribute
-   - `WIND_ANGLE`: Attribute
-   - `PK`: Attribute
-   - `Prediction`: Measure
+   - `WIND_SPEED`: `Attribute`
+   - `WIND_ANGLE`: `Attribute`
+   - `PK`: `Attribute`
+   - `Prediction`: `Measure`
 
    Ignore any message regarding the Data Flow by clicking **OK**.
 
@@ -355,13 +363,13 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/column-types.png)
 
-24. Save the Data Set and click "Create Project" after.
+24. **Save** the Data Set and click **Create Project** after.
 
    ![pic1](images/save-and-create.png)
 
 25. Now it's time to visualize the predictions.
 
-   Select `WIND_SPEED`, `WIND_ANGLE` and `Prediction` (control-click for multi-select) and Right Click. Then choose "Pick Visualization" and choose "Line" chart.
+   Select `WIND_SPEED`, `WIND_ANGLE` and `Prediction` (control-click for multi-select) and Right Click. Then choose **Pick Visualization** and choose **Line** chart.
 
    ![pic1](images/create-line-chart.png)
 

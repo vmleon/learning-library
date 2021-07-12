@@ -6,11 +6,12 @@
 
 During this lab you will deploy an Oracle Analytics Cloud instance on Oracle Cloud Infrastructure.
 
-> Provisioning Oracle analytics Cloud can take up to 40 minutes.
+> Provisioning Oracle Analytics Cloud can take up to 40 minutes.
 
 <!--
 [](youtube:Sf5MkI9pTn0)
 -->
+
 Estimated Lab Time: 15 minutes
 
 ### Objectives
@@ -32,7 +33,7 @@ In this lab, you will:
    - **OCI Native users**: represent users like you, or applications that can perform operations on OCI native services.
    - **OCI Federated Users** with Identity Cloud Service (IDCS). IDCS is an Identity Provider included with Oracle Cloud to manage Identity services beyond basic users, groups and roles capabilities. For example, OAuth2.0, Multi Factor Authentication, etc.
 
-   > NOTE: OAC requires a Federated user.
+   > NOTE: Oracle Analytics Cloud (OAC) requires a Federated user.
 
 2. Go to **Profile** on the top-right corner and make sure your user has the name **oracleidentitycloudservice/** appended before your email, like in the picture:
 

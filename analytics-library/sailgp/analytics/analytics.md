@@ -6,7 +6,7 @@
 
 In this lab you'll get a taste of what it is to be a Data Athlete for SailGP! One of their jobs is to do a post-race analysis. The goal of such an analysis is to find out why one boat finishes before the other one. You'll do this by looking for clues in the data and calculate various performance metrics. The final goal of this is to help the sailing teams to perform better in the upcoming race!
 
-The tool that will make this possible is **Oracle Analytics Cloud**, which will work on data that's stored and processed by **Oracle Autonomous Data Warehouse**.
+The tool that will make this possible is **Oracle Analytics Cloud** (OAC), which will work on data that's stored and processed by **Oracle Autonomous Data Warehouse** (ADW).
 
 [](youtube:Sf5MkI9pTn0)
 
@@ -49,8 +49,8 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
 5. Type the password, confirm the password by typing it again and click **Download**.
 
-      - Password: **Oracle_12345**
-      - Confirm Password: **Oracle_12345**
+      - Password: `Oracle_12345`
+      - Confirm Password: `Oracle_12345`
 
    ![AWD Wallet Password](images/adw_wallet_password.png)
 
@@ -68,9 +68,13 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
 8. **Open** the Cloud Analytics **URL** associated with your instance (the one that we created in Lab 2) by using the dots menu button on the right-hand side of your instance information and selecting **Analytics Home Page**.
 
+   > Make sure your Oracle Analytics Cloud instance is in status `Active` (not `Creating`) before you go to **Analytics Home Page**.
+   >
+   > Be patient, Analytics Cloud sometimes can take few more minutes to provision.
+
     ![Cloud Analytics URL](images/select-oac-instance.png)
 
-    The **Oracle Analytic**s page will open in a new browser **window/tab**.
+    The **Oracle Analytics** page will open in a new browser **window/tab**.
 
 9. On the top right-hand side of the screen, click **Create**, and then **Connection**.
 
@@ -82,15 +86,15 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
     Use the following information to configure your **connection**.
 
-    > **Connection Name**: SAILGP
+    > **Connection Name**: `SAILGP`
     >
-    > **Client Credentials**: Use the Browse button to upload the **wallet zip > file** that you downloaded. It will automatically extract the cwallet.sso file from this zip bundle.
+    > **Client Credentials**: Use the Browse button to upload the **wallet zip > file** that you downloaded. It will automatically extract the `cwallet.sso` file from this zip bundle.
     >
-    > **Username**: SAILOR
+    > **Username**: `SAILOR`
     >
-    > **Password**: Oracle_12345
+    > **Password**: `Oracle_12345`
     >
-    > **Service Name**: Keep the default, the name of your database followed by the \_high suffix.
+    > **Service Name**: Keep the default, the name of your database followed by the `_high` suffix.
     >
 
     ![Connection Creation](images/oac-adw-connection-details-admin.png)
@@ -99,7 +103,7 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
 ## **STEP 2:** Add the dataset to Oracle Analytics Cloud
 
-We're going to take a deep dive on the SailGP regatta that took place in Bermuda in April 2021. In particular we're going to have a look at race 4 (out of 7 in total). We're going to do a post race analysis with the goal of helping the teams perform better in the upcoming race.
+We're going to take a deep dive on the SailGP regatta that took place in Bermuda in April 2021. In particular, we are going to have a look at race 4 (out of 7 in total). We're going to do a post race analysis with the goal of helping the teams perform better in the upcoming race.
 
 Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we have to make this available to Oracle Analytics Cloud.
 
@@ -107,11 +111,11 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![Create dataset](images/create-dataset.png)
 
-2. Select the SAILGP connection.
+2. Select the `SAILGP` connection.
 
    ![Select SAILGP connection](images/select-sailgp-connection.png)
 
-3. Open the `SAILOR` schema and double click on the `SGP_STRM_PIVOT` table.
+3. Open the `SAILOR` schema and **double click** on the `SGP_STRM_PIVOT` table.
 
    ![Add dataset](images/add-dataset.png)
 
@@ -132,13 +136,13 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    This attribute contains the time in the race, in seconds. For example, -30 indicates 30 seconds before the start of the race. Value 0 indicates the start of the race, et cetera.
 
-   Right now it is classified as a METRIC (visible because of the # symbol). However, we will not use this attribute to calculate, therefore we will convert this into an ATTRIBUTE.
+   Right now it is classified as a `MEASURE` (visible because of the # symbol). However, we will not use this attribute to calculate, therefore we will convert this into an `ATTRIBUTE`.
 
-   Click the header of the `TIME_GRP` column, then click the value next to "Treat As" and change it to "Attribute".
+   Click the header of the `TIME_GRP` column, then click the value next to **Treat As** and change it to **Attribute**.
 
    ![Change TIME_GRP to attribute](images/change-timegrp-to-attribute.png)
 
-   The symbol next to the column header changes to "A".
+   The symbol next to the column header changes to `A`.
 
 6. Pivot the representation
 
@@ -148,9 +152,9 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
 7. Modify the aggregation type of `BOAT_SPEED_KNOTS` (boat speed in knots)
 
-   Later on, we'll want to obtain the Maximum Boat Speed for each team. Because of this, we want to set the default aggregation of the `BOAT_SPEED_KNOTS` field to "Maximum".
+   Later on, we will want to obtain the Maximum Boat Speed for each team. Because of this, we want to set the default aggregation of the `BOAT_SPEED_KNOTS` field to **Maximum**.
 
-   Find the `BOAT_SPEED_KNOTS` column and click it, then change the aggregation to "Maximum".
+   Find the `BOAT_SPEED_KNOTS` column and click it, then change the aggregation to **Maximum**.
 
    ![Change aggregation to maximum](images/boat-speed-max.png)
 
@@ -167,23 +171,23 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
 8. Save the data set
 
-   Finally, click the "Save" icon and give the data set a logical name, e.g. "Race Data".
+   Finally, click the **Save** icon and give the data set a logical name, e.g. **Race Data**.
 
    ![Set name and save data set](images/save-dataset.png)
 
 ## **STEP 3:** Basic statistics
 
-1. Still in the data set editor, on the top right, click "Create Project".
+1. Still in the data set editor, on the top right, click **Create Project**.
 
    ![Change aggregation to average](images/create-project.png)
 
    Now you have prepared your data, you are ready to start creating some visualizations and finally get some insights!
 
-	 Now you are in the Visualization area!
+	Now you are in the Visualization area!
 
-	 As a general note, keep in mind that you can use the Undo/Redo buttons at the top right of the screen if you make any mistake in this section.
-
-   ![Undo](images/undo.png)
+	> NOTE: As a general note, keep in mind that you can use the Undo/Redo buttons at the top right of the screen if you make any mistake in this section.
+   > 
+   > ![Undo](images/undo.png)
 
 2. See who were the winners of the race
 
@@ -203,7 +207,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic1](images/change-to-horbar.png)
 
-   We want to see the fastest team first, so let's change the sorting. Click the "Sorting" icon (top right).
+   We want to see the fastest team first, so let's change the sorting. Click the **Sorting** icon (top right).
 
    ![pic1](images/change-sorting.png)
 
@@ -217,7 +221,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic1](images/drag-bname-to-filter.png)
 
-   Then configure the filter to include all countries apart from JPN and USA. You see how the chart now contains only the 6 remaining teams.
+   Then configure the filter to include all countries apart from `JPN` and `USA`. You see how the chart now contains only the 6 remaining teams.
 
    ![pic1](images/configure-filter.png)
 
@@ -227,7 +231,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    Which teams are able to obtain the maximum speed with the boat? Let's find out!
 
-   Right click on the `BOAT_SPEED_KNOTS` field and choose "Create Best Visualization".
+   Right click on the `BOAT_SPEED_KNOTS` field and choose **Create Best Visualization**.
 
    ![pic2](images/visualize-knots.png)
 
@@ -256,7 +260,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
 	 ![pic2](images/f50-foiling.png)
 
-   First create a calculation to calculate the percentage of time that teams are foiling. We can use the `TIME_SAILED` (total time to complete race) and `TIME_FOILING` for this. Add a calculation (right click on "My Calculations") and create the following formula. Remember that you can drag the fields in from the left to add them to the formula.
+   First create a calculation to calculate the percentage of time that teams are foiling. We can use the `TIME_SAILED` (total time to complete race) and `TIME_FOILING` for this. Add a calculation (right click on **My Calculations**) with the name `Foiling Percentage` and create the following formula. Remember that you can drag the fields in from the left to add them to the formula.
 
    It should look like this:
 
@@ -264,7 +268,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic2](images/foiling-percentage.png)
 
-   Now create a chart to display the foiling percentage for all the teams. First, create a new chart with overall foiling percentage by right clicking on the new Foiling Percentage field and choosing "Create Best Visualization"
+   Now create a chart to display the foiling percentage for all the teams. First, create a new chart with overall foiling percentage by right clicking on the new Foiling Percentage field and choosing **Create Best Visualization**.
 
    ![pic2](images/foiling-percentage2.png)
 
@@ -282,9 +286,9 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    We can see that, although Denmark does a good job foiling, they are still the last team to cross the finish line.
 
-	 ![pic2](images/conclusion-denmark.png)
+	![pic2](images/conclusion-denmark.png)
 
-   Save the project.
+   Save the project with name `Basic statistics on Bermuda race 4`.
 
    ![pic2](images/save-project.png)
 
@@ -309,15 +313,15 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    Our goal is to visualize the boats on a map so that we can see how close the teams are to the starting line at the star signal. Luckily, our data contains the geographical coordinate (latitude + longitude) of each boat at each moment in the race. However, we first have to instruct Oracle Analytics Cloud to interpret our coordinates as such.
 
-   From the home page of Oracle Analytics Cloud, choose "Data", then click the ribbon `Race Data` and select "Open".
+   From the **Home Page** of Oracle Analytics Cloud, choose **Data**, then click the ribbon `Race Data` and select **Open**.
 
    ![pic2](images/open-dataset.png)
 
-   Find the "LATITUDE" column (towards the end), and change "Treat As" to **Attribute**.
+   Find the `LATITUDE` column (towards the end), and change **Treat As** to **Attribute**.
 
    ![pic2](images/latitude.png)
 
-   Next, click on the ribbon next to the "LATITUDE" field and choose "Location Details".
+   Next, click on the ribbon next to the `LATITUDE` field and choose **Location Details**.
 
    ![pic2](images/loc-details2.png)
 
@@ -325,7 +329,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/latitude3.png)
 
-   Next, do the same thing for the "LONGITUDE" column. Set the "Treat As" to Attribute.
+   Next, do the same thing for the `LONGITUDE` column. Set the **Treat As** to **Attribute**.
 
    ![pic2](images/longitude.png)
 
@@ -337,7 +341,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/create-project2.png)
 
-   Now we want to visualize our coordinates (comprised of Latitude Longitude). Select the LATITUDE and LONGITUDE columns (use Control to select multiple columns). Then drag them to the right canvas.
+   Now we want to visualize our coordinates (comprised of Latitude and Longitude). Select the `LATITUDE` and `LONGITUDE` columns (use Control to select multiple columns). Then drag them to the right canvas.
 
    ![pic2](images/drag-latlon.png)
 
@@ -345,17 +349,17 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/first-map.png)
 
-   We want to be able to distinguish the path of each team separately. Let's color-code each team. Drag the `B_NAME` column to the "Color" field.
+   We want to be able to distinguish the path of each team separately. Let's color-code each team. Drag the `B_NAME` column to the **Color** field.
 
    ![pic2](images/drag-bname-color.png)
 
    This shows each team as a separate color. However, it's still a lot of data to digest. How do we zoom in on only the data that's relevant for that start? Let's filter the data to show only the first seconds of the race.
 
-   Drag TIME_GRP to the Filter area.
+   Drag `TIME_GRP` to the Filter area.
 
    ![pic2](images/drag-filter.png)
 
-   Set the filter type to RANGE.
+   Set the filter type to **RANGE**.
 
    ![pic2](images/filter-range.png)
 
@@ -365,11 +369,11 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    This still isn’t perfect, because we cannot see the starting line. We have no context of the race course (starting line, marks, et cetera).
 
-   Our next task will be to bring in the geographical elements for starting line, marks, et cetera. First Save, the project.
+   Our next task will be to bring in the geographical elements for starting line, marks, et cetera. First Save, the project as `Performance analysis`.
 
    ![pic2](images/save-project3.png)
 
-   Then, go back to the Home Page.
+   Then, go back to the **Home Page**.
 
    ![pic2](images/to-homepage4.png)
 
@@ -377,7 +381,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 1. **Download** a file that contains all the geographical elements (such as starting line, waypoints and finish line) from <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/XfJRoExhW_0WX_aspj4H1U2Ce8vDA45SRZFW_27KmXYRFXbyRNhjvvU98cB5FbVG/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_bermuda.geojson" target="\_blank">File with Bermuda geo elements</a> to your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.geojson`.
 
-2. From the ribbon on the homepage, go to the Console.
+2. From the ribbon on the **Home Page**, go to the Console.
 
    ![pic2](images/to-console.png)
 
@@ -385,13 +389,13 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/maps.png)
 
-4. Choose "Add Custom Layer"
+4. Choose **Add Custom Layer**:
 
    ![pic2](images/add-custom-layer.png)
 
-5. Choose the file that you've just downloaded. Note the "Trackelement" field.
+5. Choose the file that you've just downloaded. Note the **Trackelement** field.
 
-   This field in the file identifies each of the geographical elements with a number. This number corresponds to the leg to which the element belongs. For example, trackelement=0 corresponds to the coordinates of the starting line, trackelement=1 corresponds to the coordinates of the first waypoint after the start and trackelement=6 corresponds to the coordinates of the finish line. See the image below for an explanation.
+   This field in the file identifies each of the geographical elements with a number. This number corresponds to the leg to which the element belongs. For example, `trackelement=0` corresponds to the coordinates of the starting line, `trackelement=1` corresponds to the coordinates of the first waypoint after the start and `trackelement=6` corresponds to the coordinates of the finish line. See the image below for an explanation.
 
    ![pic2](images/trackelements.png)
 
@@ -401,11 +405,11 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 6. Next, link our dataset to the geographical data of the race course. We will do this by linking the leg number to the trackelement number that we just uploaded.
 
-7. From the home page of Oracle Analytics Cloud, choose "Data", then click the ribbon and select "Open".
+7. From the **Home Page** of Oracle Analytics Cloud, choose **Data**, then click the ribbon and select **Open**.
 
    ![pic2](images/open-dataset.png)
 
-8. Click the `BDE_LEG_NUM_UNK` column (towards the end). This contains the current leg that each boat is sailing at a particular moment in time. Set "Treat As" to Attribute.
+8. Click the `BDE_LEG_NUM_UNK` column (towards the end). This contains the current leg that each boat is sailing at a particular moment in time. Set **Treat As** to Attribute.
 
    ![pic2](images/config-leg.png)
 
@@ -413,11 +417,11 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/loc-details.png)
 
-10. Select the "Bermuda" map to connect to this column. You will notice that the values in our data set ("Your Data") line up perfectly with the values in the map information that we uploaded earlier ("Match").
+10. Select the `sailgp bermuda` map to connect to this column. You will notice that the values in our data set ("Your Data") line up perfectly with the values in the map information that we uploaded earlier ("Match").
 
    ![pic2](images/map-data.png)
 
-11. Go back to the Home Page and save the data set if you're being asked to.
+11. Go back to the **Home Page** and save the data set if you're being asked to.
 
    ![pic2](images/to-homepage3.png)
 
@@ -425,11 +429,11 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    Now we're ready to include the geographical elements such as starting line, waypoints and finish line.
 
-1. From the Home Page, select "Project and Reports", then click the project that we created earlier. We called it "Performance analysis" (containing the analysis of the start).
+1. From the Home Page, select **Project and Reports** or **Projects**, then click the project that we created earlier. We called it `Performance analysis` (containing the analysis of the start).
 
    ![pic2](images/restart-project.png)
 
-2. Click the ribbon icon next to the map configuration and choose "Add Layer".
+2. Click the ribbon icon next to the map configuration and choose **Add Layer**.
 
    ![pic2](images/add-layer.png)
 
@@ -437,7 +441,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/drag-leg.png)
 
-4. Select the "bermuda" layer.
+4. Select the `sailgp bermuda` layer.
 
    ![pic2](images/select-bermuda-map-layer.png)
 
@@ -473,19 +477,19 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    Let's see how well our focus teams, Denmark and France, compare to the winner, Great Britain, when it comes to maneuvers.
 
-1. From the home page of Oracle Analytics Cloud, choose "Data", then click the ribbon `Race Data` and select "Open".
+1. From the **Home Page** of Oracle Analytics Cloud, choose **Data**, then click the ribbon `Race Data` and select **Open**.
 
    ![pic2](images/open-dataset2.png)
 
-2. Find the `TIME_IN_MANEUVER` column (towards the end) and set "Treat As" to "Attribute". We will use this field to zoom in on maneuvers only later on.
+2. Find the `TIME_IN_MANEUVER` column (towards the end) and set **Treat As** to **Attribute**. We will use this field to zoom in on maneuvers only later on.
 
    ![pic2](images/time-in-maneuver.png)
 
-3. Go back to the Home Page. Save the Data Set if you're being asked to.
+3. Go back to the **Home Page**. Save the Data Set if you're being asked to.
 
    ![pic2](images/to-homepage5.png)
 
-4. Open the Project that we created earlier by clicking on "Projects and Reports" and then click on "Performance analysis".
+4. Open the Project that we created earlier by clicking on **Projects and Reports** or **Projects** and then click on `Performance analysis`.
 
    ![pic2](images/open-project2.png)
 
@@ -519,7 +523,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 	 ![pic4](images/back-to-fields.png)
 
-   In this chart we want to see how well the boats are able to keep out of the water during a maneuver. The boats try to not hit the water during a maneuver, to prevent losing speed. The column `LENGTH_RH_BOW_MM` indicates the "flying height", the distance that the boat is out of the water. The TWA_SGP_DEG column indicates the wind direction, so we can see exactly when the boat is at the middle of its maneuver.
+   In this chart we want to see how well the boats are able to keep out of the water during a maneuver. The boats try to not hit the water during a maneuver, to prevent losing speed. The column `LENGTH_RH_BOW_MM` indicates the "flying height", the distance that the boat is out of the water. The `TWA_SGP_DEG` column indicates the wind direction, so we can see exactly when the boat is at the middle of its maneuver.
 
 	 Configure the chart as follows by dragging the fields from the left to the chart configuration.
 
@@ -533,7 +537,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic4](images/maximize-chart.png)
 
-   The way that the flight height has been configured, at a value of `0,4` the boat hits the water. Let's include a reference line to indicate this. Click the ribbon menu, select "Add Statistics" and click "Add reference line" as follows:
+   The way that the flight height has been configured, at a value of `0,4` the boat hits the water. Let's include a reference line to indicate this. Click the ribbon menu, select **Add Statistics** and click **Add reference line** as follows:
 
    ![pic4](images/add-reference-line.png)
 

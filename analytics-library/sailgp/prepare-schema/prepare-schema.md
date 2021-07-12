@@ -86,13 +86,13 @@ This new user/schema will hold the SailGP data.
    
    Save the files on your local machine. Make sure that the files are saved with extension `.csv`.
 
-2. Next, again go to **Tools** tab and click **Open Database Actions**.
+2. Next, come back to your `sailgp` ADW console, go to **Tools** tab and click **Open Database Actions**.
 
-   You should still have a browser tab open with the main page of the Autonomous Data Warehouse service. If not, navigate to this page first. Then, open Database Actions.
+   > You should still have a browser tab open with the main page of the Autonomous Data Warehouse service. If not, navigate to this page first. Then, open Database Actions.
+
+   **_IMPORTANT_: This time, login with user `SAILOR`, password `Oracle_12345` (Don't login with ADMIN)**
 
    ![Open Database Actions](images/open-database-actions.png)
-
-   **_IMPORTANT_: This time, login with user SAILOR, password Oracle_12345 (Don't login with ADMIN**)
 
 3. Click to the **Data Load** option, under the **Data Tools** section.
 
