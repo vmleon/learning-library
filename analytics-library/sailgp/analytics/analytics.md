@@ -34,10 +34,10 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
 	![Oracle Console SignIn](images/adw_menu.png)
 
-    You can see all the **ADW** instances that you have **created**.
-    **Select** the instance `SAILGP` that we created before.
+   You can see all the **ADW** instances that you have **created**.
+   **Select** the instance `SAILGP` that we created before.
 
-    ![ADW databases list](images/select-sailgp-database.png)
+   ![ADW databases list](images/select-sailgp-database.png)
 
 2. We will download the wallet file. The wallet file (client credentials), along with the database user ID and password, provides access to your Autonomous Database in the most secure way possible.
 
@@ -64,11 +64,11 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
 7. Use the Wallet in Oracle Analytics Cloud
 
-    **Return** to the **Oracle Cloud Infrastructure console** and click on the menu icon on the left.
+   **Return** to the **Oracle Cloud Infrastructure console** and click on the menu icon on the left.
 
-    Navigate to **Analytics & AI** and then **Analytics Cloud**.
+   Navigate to **Analytics & AI** and then **Analytics Cloud**.
 
-    ![OAC Web Console](images/analytics-oac.png)
+   ![OAC Web Console](images/analytics-oac.png)
 
 8. **Open** the Cloud Analytics **URL** associated with your instance (the one that we created in Lab 2) by using the dots menu button on the right-hand side of your instance information and selecting **Analytics Home Page**.
 
@@ -76,32 +76,32 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
    >
    > Be patient, Analytics Cloud sometimes can take few more minutes to provision.
 
-    ![Cloud Analytics URL](images/select-oac-instance.png)
+   ![Cloud Analytics URL](images/select-oac-instance.png)
 
-    The **Oracle Analytics** page will open in a new browser **window/tab**.
+   The **Oracle Analytics** page will open in a new browser **window/tab**.
 
 9. On the top right-hand side of the screen, click **Create**, and then **Connection**.
 
-    ![Connection Creation](images/oac-create-connection.png)
+   ![Connection Creation](images/oac-create-connection.png)
 
 10. Choose **Oracle Autonomous Data Warehouse**.
 
-    ![Connection Creation - ADW](images/select-adw.png)
+   ![Connection Creation - ADW](images/select-adw.png)
 
-    Use the following information to configure your **connection**.
+   Use the following information to configure your **connection**.
 
-    > **Connection Name**: `SAILGP`
-    >
-    > **Client Credentials**: Use the Browse button to upload the **wallet zip > file** that you downloaded. It will automatically extract the `cwallet.sso` file from this zip bundle.
-    >
-    > **Username**: `SAILOR`
-    >
-    > **Password**: `Oracle_12345`
-    >
-    > **Service Name**: Keep the default, the name of your database followed by the `_high` suffix.
-    >
+   > **Connection Name**: `SAILGP`
+   >
+   > **Client Credentials**: Use the Browse button to upload the **wallet zip> file** that you downloaded. It will automatically extract the `cwallet.sso` file from this zip bundle.
+   >
+   > **Username**: `SAILOR`
+   >
+   > **Password**: `Oracle_12345`
+   >
+   > **Service Name**: Keep the default, the name of your database followed by the `_high` suffix.
+   >
 
-    ![Connection Creation](images/oac-adw-connection-details-admin.png)
+   ![Connection Creation](images/oac-adw-connection-details-admin.png)
 
 11. Select **Save** to save your new connection **information**.
 
@@ -111,7 +111,7 @@ We're going to take a deep dive on the SailGP regatta that took place in Bermuda
 
 Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we have to make this available to Oracle Analytics Cloud.
 
-1. On the top right, choose Create and then Dataset.
+1. On the top right, choose **Create** and then **Data Set**.
 
    ![Create dataset](images/create-dataset.png)
 
@@ -148,13 +148,13 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    The symbol next to the column header changes to `A`.
 
-6. Pivot the representation
+6. **Pivot** the representation
 
    Pivot the presentation so it becomes easier to modify the column configuration.
 
    ![Change TIME_GRP to attribute](images/change-representation.png)
 
-7. Modify the aggregation type of `BOAT_SPEED_KNOTS` (boat speed in knots)
+7. Modify the **Aggregation** type of `BOAT_SPEED_KNOTS` (boat speed in knots)
 
    Later on, we will want to obtain the Maximum Boat Speed for each team. Because of this, we want to set the default aggregation of the `BOAT_SPEED_KNOTS` field to **Maximum**.
 
@@ -245,11 +245,11 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic2](images/drag-bname2.png)
 
-   Change the chart type to "Horizontal Stacked".
+   Change the chart type to **Horizontal Stacked**.
 
    ![pic2](images/change-chart-type.png)
 
-   Sort the chart by boat speed.
+   **Sort** the chart by boat speed.
 
    ![pic2](images/sort-icon.png)
    ![pic2](images/sort-by-boat-speed.png)
@@ -280,11 +280,11 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic2](images/drag-bname3.png)
 
-   Change the chart type to Horizontal Bar Stacked.
+   Change the chart type to **Horizontal Bar Stacked**.
 
    ![pic2](images/change-chart-type2.png)
 
-   And change the sorting to be on Foiling Percentage high to low.
+   And change the sorting to be on Foiling Percentage **High to Low**.
 
    ![pic2](images/change-sorting3.png)
 
@@ -296,7 +296,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    ![pic2](images/save-project.png)
 
-   Go back to the home page.
+   Go back to the **Home Page**.
 
    ![pic2](images/to-homepage.png)
 

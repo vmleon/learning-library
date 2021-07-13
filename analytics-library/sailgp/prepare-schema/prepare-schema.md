@@ -37,13 +37,13 @@ This new user/schema will hold the SailGP data.
 
     ![ADW Menu](images/open-sql.png)
 
-5. **Download** the <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/JbEdrEEaFEEwmhXdC-nsEdRIJpqz1cQ30LYa7g2E-aYFopABGTNM9Hkp0u5mVRfQ/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_create_user.sql" target="\_blank">sailgp_create_user.sql</a>. Save the file on your local machine. Make sure that the file is saved with extension `.sql`.
+5. **Download** the <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/JbEdrEEaFEEwmhXdC-nsEdRIJpqz1cQ30LYa7g2E-aYFopABGTNM9Hkp0u5mVRfQ/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_create_user.sql" target="\_blank">`sailgp_create_user.sql`</a>. Save the file on your local machine. Make sure that the file is saved with extension `.sql`.
 
-    1. Open the `create_user.sql` file with a text editor and copy-and-paste all of its contents from the file into the worksheet area.
+    1. Open the `sailgp_create_user.sql` file with a text editor and copy-and-paste all of its contents from the file into the worksheet area.
 
     ![ADW Menu](images/copy-paste.png)
 
-    1. Click the run-script button (**not** the Run button). Then verify the output in the "Script Output" tab. The last lines in the output should indicate that the script has run successfully.
+    1. Click the run-script button (**not** the Run button). Then verify the output in the **Script Output** tab. The last lines in the output should indicate that the script has run successfully.
 
     ![ADW Menu](images/run-script.png)
 
@@ -86,7 +86,7 @@ This new user/schema will hold the SailGP data.
    
    Save the files on your local machine. Make sure that the files are saved with extension `.csv`.
 
-2. Next, come back to your `sailgp` ADW console, go to **Tools** tab and click **Open Database Actions**.
+2. Next, come back to your `SAILGP` ADW console, go to **Tools** tab and click **Open Database Actions**.
 
    > You should still have a browser tab open with the main page of the Autonomous Data Warehouse service. If not, navigate to this page first. Then, open Database Actions.
 

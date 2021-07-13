@@ -48,7 +48,7 @@ Estimated Lab Time: 30 minutes
 
 5. Compare the number of maneuvers
 
-   Delete any filter that's active. Next, add two new filters. Create a filter on `B_NAME` (team) to include France and Great Britain and `BDE_LEG_NUM_UNK` (Leg) to be 3. Then, if needed, change the zoom on the map, so you can see the full leg.
+   **Delete** any filter that's active. Next, add two new filters. Create a filter on `B_NAME` (team) to **include** France and Great Britain and `BDE_LEG_NUM_UNK` (Leg) to be **3**. Then, if needed, change the zoom on the map, so you can see the full leg.
 
    ![pic2](images/investigate-man.png)
 
@@ -59,24 +59,25 @@ Estimated Lab Time: 30 minutes
 
 1. Let's see how France's maneuvers compare to those of the winner of the race, GBR.
 
-   Change the filter so we only look at leg 4, and add a filter to only show the parts where teams are making a maneuver so `MANEUVER` is `Y` (Yes).
+   **Change the filter** so we only look at leg **4**, and add a filter to only show the parts where teams are making a maneuver so `MANEUVER` is `Y` (Yes).
 
    ![pic4](images/filter-manoeuver.png)
 
    Notice how you now only see the sections where the boats are changing their sailing course. Each of these sections is defined to be exactly 30 seconds, and at the centre of it,  the moment in which the boat passes exactly through the wind.
 
-	 Now, let's look into the quality of the maneuvers.
+	Now, let's look into the quality of the maneuvers.
 
-	 Create a new Line Chart by clicking on the Graph icon (second icon from the top left), then drag the Line icon to just left of the existing map visualization.
+	Create a new Line Chart by **clicking** on the Graph icon (second icon from the top left), then **drag** the Line icon to just left of the existing map visualization.
+   
    ![pic4](images/create-line-chart.png)
 
-	 Go back to the fields by clicking on the database icon.
+	Go back to the fields by **clicking** on the database icon.
 
-	 ![pic4](images/back-to-fields.png)
+	![pic4](images/back-to-fields.png)
 
    In this chart we want to see how well the boats are able to keep out of the water during a maneuver. The boats try to not hit the water during a maneuver, to prevent losing speed. The column `LENGTH_RH_BOW_MM` indicates the "flying height", the distance that the boat is out of the water. The `TWA_SGP_DEG` column indicates the wind direction, so we can see exactly when the boat is at the middle of its maneuver.
 
-	 Configure the chart as follows by dragging the fields from the left to the chart configuration.
+	Configure the chart as follows by **dragging** the fields from the left to the chart configuration.
 
    ![pic4](images/configure-line-chart.png)
 
@@ -100,7 +101,7 @@ Estimated Lab Time: 30 minutes
 
    ![pic4](images/compare-maneuver-quality.png)
 
-	 **Conclusion:** Notice how the French team comes in contact with the water more often. So the tacking/gybing technique could be another point of attention to improve their next race.
+	**Conclusion:** Notice how the French team comes in contact with the water more often. So the tacking/gybing technique could be another point of attention to improve their next race.
 
 Congratulations on completing this lab! You have made the first steps towards a full post-race analysis. This is just the beginning; there are many more sensor values to explore and insights to find with which we can improve the teams' performance. We hope you feel inspired to continue experimenting with this data, or even start with the analysis of your own data!
 

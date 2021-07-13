@@ -70,7 +70,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
 3. Let's have a look at our measurements.
 
-   Create a new dataset.
+   Create a new **Data Set**.
 
    ![pic1](images/create-dataset.png)
 
@@ -92,7 +92,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/pk-attribute.png)
 
-8. Save the Data Set and name it `Sail History`.
+8. **Save** the Data Set and name it `Sail History`.
 
    ![pic1](images/save-dataset2.png)
 
@@ -239,7 +239,7 @@ Now it's time to make predictions with the model. We will make a prediction for 
 
 The following assumes you already have Oracle Analytics Cloud open in your browser. If not, you can find instructions in Step 2 on how to open it.
 
-1. Create a new dataset.
+1. Create a new **Data Set**.
 
    ![pic1](images/create-dataset.png)
 
@@ -257,7 +257,7 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/click-table.png)
 
-5. Save the Data Set, call it `To Predict`.
+5. **Save** the Data Set, call it `To Predict`.
 
    ![pic1](images/save-dataset.png)
 
@@ -276,11 +276,11 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
 9. Now it's time to predict the boat speeds for all the combinations of wind speed and wind angle in the "To Predict" dataset. We can do this with Data Flows. Data Flows let us create a series of steps in which we can manipulate data in sequence, or in this case, apply a ML model to data.
 
-   Create a new Data Flow.
+   Create a new **Data Flow**.
 
    ![pic1](images/create-df.png)
 
-10. Select the "To Predict" Data Set as the input for the Data Flow and click **Add**.
+10. Select the **To Predict** Data Set as the input for the Data Flow and click **Add**.
 
    ![pic1](images/select-to-predict.png)
 
@@ -300,11 +300,11 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/transform-column.png)
 
-14. Choose the Prediction column. This is the column we will adapt.
+14. Choose the **Prediction** column. This is the column we will adapt.
 
    ![pic1](images/pred-col.png)
 
-15. Clear the formula, open the Expressions option at the right, and drag "Case (If)" to the formula field.
+15. Clear the formula, open the Expressions option at the right, and drag `Case (If)` to the formula field.
 
    ![pic1](images/drag-to-formula.png)
 
@@ -336,7 +336,7 @@ The following assumes you already have Oracle Analytics Cloud open in your brows
 
    ![pic1](images/save-df2.png)
 
-20. On the top right, click on the play button to start the Data Flow.
+20. On the top right, click on the **Play** button to start the Data Flow.
 
    ![pic1](images/run-df.png)
 

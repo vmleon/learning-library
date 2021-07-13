@@ -65,7 +65,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
    ![pic2](images/create-project2.png)
 
-   Now we want to visualize our coordinates (comprised of Latitude and Longitude). Select the `LATITUDE` and `LONGITUDE` columns (use Control to select multiple columns). Then drag them to the right canvas.
+   Now we want to visualize our coordinates (comprised of Latitude and Longitude). **Select** the `LATITUDE` and `LONGITUDE` columns (use Control to select multiple columns). Then **drag** them to the right canvas.
 
    ![pic2](images/drag-latlon.png)
 
