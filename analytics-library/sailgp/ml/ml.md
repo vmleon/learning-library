@@ -148,7 +148,7 @@ In the past we've gone onto the water with our boat many times in different wind
 
    ![pic1](images/manage-ml-users.png)
 
-   Sign in with `ADMIN`, password `Oracle_12345`, if login is requested.
+   If sign-in is requested, sign in with `ADMIN`, password `Oracle_12345`.
 
 5. Check **Show All Users**, then click on the `SAILOR` user.
 
