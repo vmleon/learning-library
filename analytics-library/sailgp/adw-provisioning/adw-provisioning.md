@@ -13,7 +13,7 @@ In this lab, you will provision a new Autonomous Data Warehouse (ADW) instance.
 
 *Note: While this lab uses ADW, the steps are identical for creating an ATP database.*
 
-Estimated Lab Time: 5 minutes
+_Estimated Lab Time:_ 5 minutes
 
 ### Objectives
 

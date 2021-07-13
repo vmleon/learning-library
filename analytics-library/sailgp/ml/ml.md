@@ -19,7 +19,7 @@ You will train a machine learning model that will find the relationship between 
 
 The machine learning that takes place in the Autonomous Data Warehouse and Oracle Analytics Cloud will pick up the resulting predictions from the database and visualize them.
 
-Estimated Lab Time: 25 minutes
+_Estimated Lab Time:_ 25 minutes
 
 ### Objectives
 

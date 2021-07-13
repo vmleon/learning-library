@@ -10,7 +10,7 @@ SailGP offers the perfect playground for you to learn about analytics and Machin
 
 You have the chance to be a Data Athlete yourself! In this workshop, we will mix video from the races with theory on analytics and ML. Most importantly, we’ll be doing hands-on exercises where you’ll have the chance to practice what you’ve learned.
 
-Estimated Workshop Time: 90 minutes
+_Estimated Lab Time:_ 95 minutes
 
 ### Objectives
 In this workshop, you will:

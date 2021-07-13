@@ -10,7 +10,7 @@ When a boat changing the side that's facing the wind, we call this a Tack or a G
 
 The **quality** of the maneuvers is also very important. Ideally, during a maneuver the team loses as little speed as possible. This requires very good technique and coordination between the team members.
 
-Estimated Lab Time: 30 minutes
+_Estimated Lab Time:_ 10 minutes
 
 ### Objectives
 - Learn how a SailGP Data Athlete extracts valuable insights from sensor data

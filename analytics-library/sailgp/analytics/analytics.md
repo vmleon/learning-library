@@ -14,7 +14,7 @@ The tool that will make this possible is **Oracle Analytics Cloud** (OAC), which
 [](youtube:Sf5MkI9pTn0)
 -->
 
-Estimated Lab Time: 30 minutes
+__Estimated Lab Time:__ 20 minutes
 
 ### Objectives
 - Learn how a SailGP Data Athlete extracts valuable insights from sensor data
