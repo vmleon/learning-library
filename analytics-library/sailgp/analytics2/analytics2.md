@@ -129,7 +129,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 6. Next, link our dataset to the geographical data of the race course. We will do this by linking the leg number to the trackelement number that we just uploaded.
 
-7. From the **Home Page** of Oracle Analytics Cloud, choose **Data**, then click the ribbon and select **Open**.
+7. From the **Home Page** of Oracle Analytics Cloud, choose **Data**, then click the ribbon in `Race Data` and select **Open**.
 
    ![pic2](images/open-dataset.png)
 
