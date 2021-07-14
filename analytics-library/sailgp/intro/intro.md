@@ -4,7 +4,13 @@
 
 SailGP is like Formula 1 on the water: the boats race over the water at speeds of up to 50 knots (60 m/h, 90 km/h).
 
-SailGP offers the perfect playground for you to learn about analytics and Machine Learning. Why? It’s a data intensive sport; each boat has over 400 IoT sensors that provide more than 12,000 data points. To deliver game-changing insights from the data, SailGP employs “Data Athletes” who analyse all this data to help the teams make the best decisions on the water and stay ahead of the game.
+SailGP offers the perfect playground for you to learn about analytics and Machine Learning. Why? It’s a data intensive sport; each boat has over 800 IoT sensors that provide more than 12,000 data points. To deliver game-changing insights from the data, SailGP employs “Data Athletes” who analyse all this data to help the teams make the best decisions on the water and stay ahead of the game.
+
+On Sustainability, SailGP's innovative remote broadcast production saved 45 tons of CO2 in Taranto alone.
+
+Learn more about how SailGP is using technology to help achieve our carbon reduction goals:
+
+[](youtube:ie11hRNcuMo)
 
 ## About this Workshop
 
