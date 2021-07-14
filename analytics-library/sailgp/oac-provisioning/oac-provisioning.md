@@ -12,7 +12,7 @@ During this lab you will deploy an Oracle Analytics Cloud instance on Oracle Clo
 [](youtube:Sf5MkI9pTn0)
 -->
 
-_Estimated Lab Time:_ 15 minutes
+_Estimated Lab Time:_ 5 minutes
 
 ### Objectives
 

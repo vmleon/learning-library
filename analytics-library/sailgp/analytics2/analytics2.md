@@ -13,7 +13,7 @@ We will look closely at the **start** of the race. Often, who will win the race 
 
 Our goal is to help the sailing teams to perform better in the upcoming race!
 
-_Estimated Lab Time:_ 15 minutes
+_Estimated Lab Time:_ 10 minutes
 
 ### Objectives
 - Learn how a SailGP Data Athlete extracts valuable insights from sensor data
