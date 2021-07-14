@@ -290,7 +290,7 @@ Earlier, we uploaded the data of this race to Autonomous Data Warehouse. Now, we
 
    We can see that, although Denmark does a good job foiling, they are still the last team to cross the finish line.
 
-	![pic2](images/conclusion-denmark.png)
+   ![Conclusions](./images/conclusion-denmark.png)
 
    Save the project with name `Basic statistics on Bermuda race 4`.
 
